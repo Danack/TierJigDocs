@@ -6,7 +6,6 @@ use Tier\JigBridge\TierJig;
 use Tier\InjectionParams;
 use Tier\VariableMap\VariableMap;
 
-use ASM\SessionManager;
 use ASM\Session;
 
 class Index
@@ -20,9 +19,16 @@ class Index
     {
         $data = &$session->getData();
 
-        $data[] = time();
+        $value = $variableMap->getVariable('data', false);
+        if ($value !== false && strlen(trim($value)) != 0) {
+            $data[] = $value;
+        }
+        $value = $variableMap->getVariable('submit', false);
+        if ($value !== false && strcmp($value, "Clear") === 0) {
+            $session->setData([]);
+        }
+
         $session->save();
-        
 
         return $tierJig->createTemplateTier('pages/debug');
     }
@@ -37,18 +43,12 @@ class Index
     
     public function onePageExample(TierJig $tierJig)
     {
-//        $injectionParams = InjectionParams::fromParams(['pageTitle' => "Imagick demos"]);
-//        $injectionParams->alias('ImagickDemo\Navigation\Nav', 'ImagickDemo\Navigation\NullNav');
-
         return $tierJig->createTemplateTier('pages/onePageExample');
     }
     
     
     public function testingTemplates(TierJig $tierJig)
     {
-//        $injectionParams = InjectionParams::fromParams(['pageTitle' => "Imagick demos"]);
-//        $injectionParams->alias('ImagickDemo\Navigation\Nav', 'ImagickDemo\Navigation\NullNav');
-
         return $tierJig->createTemplateTier('pages/unitTesting');
     }
 }

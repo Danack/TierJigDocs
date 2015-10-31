@@ -9,5 +9,5 @@ if (php_sapi_name() == "cli-server") {
     }
 }
 
-require_once "../src/index.php";
+require_once "../src/indexJig.php";
 

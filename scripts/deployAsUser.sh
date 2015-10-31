@@ -25,7 +25,9 @@ mkdir -p ./var/cache/less
 mkdir -p ./autogen
 
 #Generate the config files for nginx, etc.
-vendor/bin/configurate -p data/config.php data/config_template/nginx.conf.php autogen/nginx.conf $environment
+vendor/bin/configurate -p data/config.php data/config_template/nginx.jig.conf.php autogen/nginx.jig.conf $environment
+vendor/bin/configurate -p data/config.php data/config_template/nginx.tier.conf.php autogen/nginx.tier.conf $environment
+
 vendor/bin/configurate -p data/config.php data/config_template/php-fpm.conf.php autogen/php-fpm.conf $environment
 vendor/bin/configurate -p data/config.php data/config_template/php.ini.php autogen/php.ini $environment
 vendor/bin/configurate -p data/config.php data/config_template/addConfig.sh.php autogen/addConfig.sh $environment

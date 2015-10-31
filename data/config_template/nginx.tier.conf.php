@@ -19,11 +19,10 @@ server {
     # =) as an argument to location forces an exact match with the path requested and then stops searching for more specific matches. will only match http://ducklington.org/ but not http://ducklington.org/index.html
 
     listen 80;
-    # listen 8080;
-    server_name ${'app_sitename'}.test ${'app_sitename'}.com www.${'app_sitename'}.com;
+    server_name tier.test tier.phpjig.com;
 
-    access_log  ${'nginx_log_directory'}/intahwebz.access.log;
-    error_log  ${'nginx_log_directory'}/intahwebz.error.log;
+    access_log  ${'nginx_log_directory'}/${'app_sitename'}.access.log;
+    error_log  ${'nginx_log_directory'}/${'app_sitename'}.error.log;
 
     root ${'app_root_directory'}/public;
 
@@ -55,7 +54,7 @@ server {
     
     #This must be the last regular epxression match
     location ~* ^[^\?\&]+\.(html|jpg|jpeg|gif|png|ico|css|zip|tgz|gz|rar|bz2|doc|xls|pdf|ppt|psd|txt|tar|mid|midi|wav|bmp|rtf|js|svg|woff|ttf)$ {
-        try_files \$uri /index.php?file=\$1;
+        try_files \$uri /indexTier.php?file=\$1;
 
         #access_log off;
         expires 7d;
@@ -74,7 +73,7 @@ server {
     }
 
     location  / {
-        try_files \$uri /index.php =404;
+        try_files \$uri /indexTier.php =404;
         fastcgi_param  QUERY_STRING  \$query_string;
         fastcgi_pass   unix:${'phpfpm_socket_directory'}/php-fpm-${'app_name'}.sock;
         include       ${'app_root_directory'}/data/config_template/fastcgi.conf;

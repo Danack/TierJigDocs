@@ -7,11 +7,10 @@ $shares = [
     'Jig\JigRender',
     'Jig\Jig',
     'Jig\JigConverter',
-//    'Tier\Data\PDOSQLConfig',
-//    '\PDO',
     'Intahwebz\Session',
     'ScriptServer\Service\ScriptInclude',
-    'ASM\Session'
+    'ASM\Session',
+    'Room11\HTTP\HeadersSet'
 ];
 
 
@@ -27,8 +26,8 @@ $aliases = [
 // Delegate the creation of types to callables.
 $delegates = [
     'Predis\Client' => 'createRedisClient',
-    'Jig\JigConfig' => 'createJigConfig',
-    'FastRoute\Dispatcher' => 'createDispatcher',
+    //'Jig\JigConfig' => 'createJigConfig',
+    //'FastRoute\Dispatcher' => 'createDispatcher',
     'ScriptServer\Service\ScriptInclude' => 'createScriptInclude',
     //'ASM\SessionManager' => 'createSession',
     'ASM\Session' => 'createSession',

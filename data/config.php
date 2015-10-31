@@ -27,7 +27,7 @@ $dev[Config::CACHING_SETTING] = LastModifiedStrategy::CACHING_REVALIDATE;
 
 // Whether JS/CSS should be served packed together.
 $live[Config::SCRIPT_PACKING] = true;
-$live[Config::SCRIPT_PACKING] = false;
+$dev[Config::SCRIPT_PACKING] = false;
 
 // What domain to use to generate absolute links
 $live[Config::DOMAIN_CANONICAL] = 'phpjig.com';

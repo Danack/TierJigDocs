@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7be9fa668aba81eacff600f95666af16",
+    "hash": "fb6670bf823d70343270e51beb48e8f1",
     "packages": [
         {
             "name": "danack/asm",
@@ -826,16 +826,16 @@
         },
         {
             "name": "room11/http",
-            "version": "0.0.3",
+            "version": "0.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Danack/HTTP.git",
-                "reference": "d5084bdc536e72d1bfd6662f8d3bd806b335c7f6"
+                "reference": "2c95b9ff169a52dc8bb121960fa5cf975adc4599"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Danack/HTTP/zipball/d5084bdc536e72d1bfd6662f8d3bd806b335c7f6",
-                "reference": "d5084bdc536e72d1bfd6662f8d3bd806b335c7f6",
+                "url": "https://api.github.com/repos/Danack/HTTP/zipball/2c95b9ff169a52dc8bb121960fa5cf975adc4599",
+                "reference": "2c95b9ff169a52dc8bb121960fa5cf975adc4599",
                 "shasum": ""
             },
             "require-dev": {
@@ -866,7 +866,7 @@
                 "interface",
                 "room11"
             ],
-            "time": "2015-08-22 14:15:09"
+            "time": "2015-10-31 16:56:04"
         },
         {
             "name": "squizlabs/php_codesniffer",
@@ -1808,12 +1808,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "d542bb62d3d1c2337ab8c35b179c28f7f55e97e6"
+                "reference": "3c13963da08746f478decf4c94c7664b4f84dbdf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/d542bb62d3d1c2337ab8c35b179c28f7f55e97e6",
-                "reference": "d542bb62d3d1c2337ab8c35b179c28f7f55e97e6",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/3c13963da08746f478decf4c94c7664b4f84dbdf",
+                "reference": "3c13963da08746f478decf4c94c7664b4f84dbdf",
                 "shasum": ""
             },
             "require": {
@@ -1828,7 +1828,10 @@
             "autoload": {
                 "psr-4": {
                     "Symfony\\Component\\Yaml\\": ""
-                }
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -1846,7 +1849,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2015-10-28 21:33:57"
+            "time": "2015-10-30 20:15:42"
         }
     ],
     "aliases": [],

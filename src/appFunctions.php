@@ -17,15 +17,16 @@ use ASM\SessionConfig;
 use ASM\SessionManager;
 use ASM\Session;
 use FastRoute\Dispatcher;
+use Room11\HTTP\HeadersSet;
 
 /**
  * @return JigConfig
  */
-function createJigConfig(Config $config)
+function createJigConfigForJigDocs(Config $config)
 {
     $jigConfig = new JigConfig(
-        __DIR__."/../templates/",
-        __DIR__."/../var/compile/",
+        __DIR__."/../templatesJig/",
+        __DIR__."/../var/compilejig/",
         'tpl',
         $config->getKey(Config::JIG_COMPILE_CHECK)
     );
@@ -33,7 +34,21 @@ function createJigConfig(Config $config)
     return $jigConfig;
 }
 
-function routesFunction(\FastRoute\RouteCollector $r)
+
+
+function createJigConfigForTierDocs(Config $config)
+{
+    $jigConfig = new JigConfig(
+        __DIR__."/../templatesTier/",
+        __DIR__."/../var/compiletier/",
+        'tpl',
+        $config->getKey(Config::JIG_COMPILE_CHECK)
+    );
+
+    return $jigConfig;
+}
+
+function jigRoutesFunction(\FastRoute\RouteCollector $r)
 {
     $r->addRoute('GET', '/', ['TierJig\Controller\Index', 'renderIndexPage']);
     
@@ -48,16 +63,33 @@ function routesFunction(\FastRoute\RouteCollector $r)
     $r->addRoute('GET', '/onePage', ['TierJig\Controller\Index', 'onePageExample']);
     $r->addRoute('GET', '/executing', ['TierJig\Controller\Index', 'executing']);
     $r->addRoute('GET', '/testingTemplates', ['TierJig\Controller\Index', 'testingTemplates']);
-    
-    
-    
 
     $r->addRoute('GET', '/userSetting', ['TierJig\Controller\UserSetting', 'updateSetting']);
     $r->addRoute('POST', '/userSetting', ['TierJig\Controller\UserSetting', 'updateSetting']);
-    
-    
-    
+
+    $r->addRoute('POST', '/deploy/githook', ['TierJig\Controller\GitWebHook', 'event']);
 }
+
+
+function tierRoutesFunction(\FastRoute\RouteCollector $r)
+{
+    $r->addRoute('GET', '/', ['Tier\Controller\Index', 'renderIndexPage']);
+    
+//    $r->addRoute('GET', '/debug', ['TierJig\Controller\Index', 'debug']);
+//    $r->addRoute('GET', '/syntax', ['TierJig\Controller\Syntax', 'indexPage']);
+//    $r->addRoute('GET', '/syntax/{example:\w+}', ['TierJig\Controller\Syntax', 'examplePage']);
+//
+//    $r->addRoute('GET', '/extending', ['TierJig\Controller\Extending', 'indexPage']);
+//    $r->addRoute('GET', '/extending/{example:\w+}', ['TierJig\Controller\Extending', 'examplePage']);
+//    
+//    $r->addRoute('GET', '/onePage', ['TierJig\Controller\Index', 'onePageExample']);
+//    $r->addRoute('GET', '/executing', ['TierJig\Controller\Index', 'executing']);
+//    $r->addRoute('GET', '/testingTemplates', ['TierJig\Controller\Index', 'testingTemplates']);
+//
+//    $r->addRoute('GET', '/userSetting', ['TierJig\Controller\UserSetting', 'updateSetting']);
+//    $r->addRoute('POST', '/userSetting', ['TierJig\Controller\UserSetting', 'updateSetting']);
+}
+
 
 function serve404ErrorPage(Response $response)
 {
@@ -306,10 +338,6 @@ function renderExampleCodeEnd(JigConverter $jigConverter, $extraText)
     //$jigConverter->addHTML("<br/>renderExampleCodeEnd: $extraText <br/>");
 }
 
-
-
-
-
 function highlightCodeStart(JigConverter $jigConverter, $extraText)
 {
     //$jigConverter->addHTML("<pre>");
@@ -351,10 +379,10 @@ function prepareJig(Jig $jig, $injector)
     
 }
 
-function createDispatcher(Config $config)
+function createJigDispatcher(Config $config)
 {
     $dispatcher = \FastRoute\cachedDispatcher(
-        'routesFunction',
+        'jigRoutesFunction',
         array(
             'cacheFile' => __DIR__.'/../var/cache/route.cache',
             'cacheDisabled' => !$config->getKey(Config::ROUTE_CACHING),
@@ -363,6 +391,20 @@ function createDispatcher(Config $config)
 
     return $dispatcher;
 }
+
+function createTierDispatcher(Config $config)
+{
+    $dispatcher = \FastRoute\cachedDispatcher(
+        'tierRoutesFunction',
+        array(
+            'cacheFile' => __DIR__.'/../var/cache/route.cache',
+            'cacheDisabled' => !$config->getKey(Config::ROUTE_CACHING),
+        )
+    );
+
+    return $dispatcher;
+}
+
 
 function createScriptInclude(Config $config) //, ScriptVersion $scriptVersion)
 {
@@ -420,22 +462,15 @@ function createSession(ASM\Redis\RedisDriver $redisDriver)
     return $session;
 }
 
-
-//Send these headers
-
-//Rate-limiting:
-
-//Vary:Accept-Encoding
-
-//Session:
-//Expires: (sometime in the future, according session.cache_expire)
-//Cache-Control: public, max-age=(sometime in the future, according to session.cache_expire)
-
-function addSessionHeader(Session $session, Response $response)
+/**
+ * @param Session $session
+ * @param HeadersSet $headerSet
+ */
+function addSessionHeader(Session $session, HeadersSet $headerSet)
 {
     $headers = $session->getHeaders(\ASM\SessionManager::CACHE_PRIVATE);
 
     foreach ($headers as $key => $value) {
-        $response->addHeader($key, $value);
+        $headerSet->addHeader($key, $value);
     }
 }
