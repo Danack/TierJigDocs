@@ -1,0 +1,112 @@
+/*
+
+  CSS for highlight()
+  
+  Besides tWhitespace (T_WHITESPACE), all other tokenizer identifier names are available as classes.
+  The full list of PPH parser tokens can be found here:
+    http://php.net/manual/en/tokens.php
+    
+  Code is copyright of DigitalNature. No license file was attached to the code
+  repository, but the code was offered for use, so I have assumed the author intended
+  for people to use the code.
+
+  Original code is available from https://github.com/digitalnature/php-highlight   
+*/
+
+
+/* wrapper element */
+pre.code{
+  font-family: Menlo, Monaco, "Courier New", monospace;
+  font-size: 14px;
+  padding: 5px;
+  color: @php-default-color; 
+  background-color: @php-default-background-color;
+}
+
+/* links */
+pre.code a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+/* non-php code */
+.php_T_INLINE_HTML {
+  color: @php-inline-html-color; 
+  background-color: @php-inline-html-background-color;
+}
+
+/* php tags */
+.php_T_OPEN_TAG, .php_T_OPEN_TAG_WITH_ECHO, .php_T_CLOSE_TAG {
+  font-weight: bold;
+  color: @php-tag-color; 
+  background-color: @php-tag-background-color;
+}
+
+/* inline or block comments */
+.php_T_COMMENT, .php_T_DOC_COMMENT {
+  font-style: italic;
+  color: @php-comment-color; 
+  background-color: @php-comment-background-color;
+}
+
+/* keywords that define a structure, or keywords that include code from other files */
+.php_T_REQUIRE_ONCE, .php_T_REQUIRE, .php_T_INCLUDE_ONCE, .php_T_INCLUDE, .php_T_NAMESPACE, .php_T_USE, .php_T_CLASS, .php_T_FUNCTION, .php_T_NEW {
+  font-weight: bold;
+  color: @php-keyword-color; 
+  background-color: @php-keyword-background-color;
+}
+
+/* access modifiers or keywords that define the entity type */
+.php_T_VAR, .php_T_CONST, .php_T_ABSTRACT, .php_T_PROTECTED, .php_T_PRIVATE, .php_T_PUBLIC, .php_T_STATIC, .php_T_FINAL, .php_T_EXTENDS, .php_T_IMPLEMENTS, .php_T_GLOBAL {
+  font-weight: bold;
+  color: @php-keyword-color; 
+  background-color: @php-keyword-background-color;
+}
+
+
+/* variables */
+.php_T_VARIABLE {
+  color: @php-variable-color; 
+  background-color: @php-variable-background-color;
+}
+
+/* keywords that imply the end of the execution of a code block or script */
+.php_T_RETURN, .php_T_THROW, .php_T_EXIT, .php_T_HALT_COMPILER {
+  font-weight: bold;
+  color: @php-return-color; 
+  background-color: @php-return-background-color;
+} 
+
+/* numeric values (int or double) */
+.php_T_DNUMBER, .php_T_LNUMBER {
+  color: @php-number-color; 
+  background-color: @php-number-background-color;
+}
+
+/* string values */
+.php_T_CONSTANT_ENCAPSED_STRING{
+  color: @php-encapsed-color; 
+  background-color: @php-encapsed-background-color;
+}
+
+/* funky things */
+.php_T_EVAL {
+  color: @php-eval-color; 
+  background-color: @php-eval-background-color;
+}
+
+/* The remaining classes are not listed as tokens */
+.php_BRACKET {
+  color: @php-brackets-color; 
+  background-color: @php-brackets-background-color;
+}
+
+.php_EQUALS {
+  color: @php-keyword-color; 
+  background-color: @php-keyword-background-color;
+}
+
+.php_SEMI_COLON {
+  color: @php-punctuation-color; 
+  background-color: @php-punctuation-background-color;
+}

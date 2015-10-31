@@ -1,0 +1,15 @@
+<?php
+
+namespace TierJig\Data\Examples;
+
+class %s {
+
+    function renderOutput()
+    {
+        $content = <<< 'OUTPUT'
+%s
+OUTPUT;
+
+        return $content;
+    }
+}
