@@ -4,20 +4,20 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e111d172d97fae97e8146d33fe87b648",
+    "hash": "78b7ad25761962de40612d93ca1edf0c",
     "packages": [
         {
             "name": "danack/asm",
-            "version": "dev-master",
+            "version": "0.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Danack/AdvancedSessionManagement.git",
-                "reference": "fdc0a233634af906c480bcb029ec52fc29dd5bcd"
+                "reference": "37c5370457bf0d3daae6548eb458d1799880f88a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Danack/AdvancedSessionManagement/zipball/fdc0a233634af906c480bcb029ec52fc29dd5bcd",
-                "reference": "fdc0a233634af906c480bcb029ec52fc29dd5bcd",
+                "url": "https://api.github.com/repos/Danack/AdvancedSessionManagement/zipball/37c5370457bf0d3daae6548eb458d1799880f88a",
+                "reference": "37c5370457bf0d3daae6548eb458d1799880f88a",
                 "shasum": ""
             },
             "require": {
@@ -54,7 +54,7 @@
                 }
             ],
             "description": "A userland replacement for PHP's session management.",
-            "time": "2015-10-22 13:29:08"
+            "time": "2015-11-01 01:04:14"
         },
         {
             "name": "danack/console",
@@ -1839,10 +1839,8 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "dev",
-    "stability-flags": {
-        "danack/asm": 20
-    },
+    "minimum-stability": "stable",
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
