@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "78b7ad25761962de40612d93ca1edf0c",
+    "hash": "a4e032d26834b43bec1f8e1bb755dd98",
     "packages": [
         {
             "name": "danack/asm",

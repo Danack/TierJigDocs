@@ -1,5 +1,5 @@
 
-{inject name='navItems' type='TierJig\Data\NavItems'}
+{inject name='navItems' type='JigDocs\Data\NavItems'}
 
 
 <nav class="bs-docs-sidebar hidden-print">

@@ -44,7 +44,6 @@ $injector->delegate('Jig\JigConfig', 'createJigConfigForTierDocs');
 //$responseHeaders = new HeadersSet;
 //$injector->share($responseHeaders);
 
-
 // Create the Tier application
 $app = new TierHTTPApp($injectionParams, $injector);
 

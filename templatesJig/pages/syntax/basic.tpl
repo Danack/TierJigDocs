@@ -8,7 +8,7 @@
                 
                 
 <h2>Basic syntax</h2>
-                
+
 {renderTemplateFile syntax/basic/index}
 {/renderTemplateFile}
 

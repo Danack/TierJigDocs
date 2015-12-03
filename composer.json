@@ -26,8 +26,9 @@
     },
     "autoload": {
         "psr-0": {
-            "TierJig": "lib/",
-            "Tier": "lib/",
+            "JigDocs": "lib/",
+            "Site": "lib/",
+            "TierDocs": "lib/",
             "FileFilter": ["./lib/" ],
             "FilePacker": ["./lib/" ],
             "ScriptServer": ["./lib/" ],

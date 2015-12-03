@@ -20,7 +20,7 @@ $aliases = [
     'Room11\HTTP\Request' => 'Room11\HTTP\Request\Request',
     'Room11\HTTP\Response' => 'Room11\HTTP\Response\Response',
     'Tier\VariableMap\VariableMap' => 'Tier\VariableMap\RequestVariableMap',
-    'Intahwebz\Session' => 'Intahwebz\Session\Session',
+    //'Intahwebz\Session' => 'Intahwebz\Session\Session',
 ];
 
 // Delegate the creation of types to callables.

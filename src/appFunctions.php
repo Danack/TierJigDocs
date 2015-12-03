@@ -9,8 +9,8 @@ use Room11\HTTP\Response;
 use Room11\HTTP\Body\TextBody;
 use Tier\InjectionParams;
 use Tier\Tier;
-use TierJig\Config;
-use TierJig\TierJigException;
+use Site\Config;
+use Site\SiteException;
 use ScriptServer\Value\ScriptVersion;
 use Predis\Client as RedisClient;
 use ASM\SessionConfig;
@@ -50,30 +50,44 @@ function createJigConfigForTierDocs(Config $config)
 
 function jigRoutesFunction(\FastRoute\RouteCollector $r)
 {
-    $r->addRoute('GET', '/', ['TierJig\Controller\Index', 'renderIndexPage']);
+    $r->addRoute('GET', '/', ['JigDocs\Controller\Index', 'renderIndexPage']);
     
-    $r->addRoute('GET', '/debug', ['TierJig\Controller\Index', 'debug']);
+    $r->addRoute('GET', '/debug', ['JigDocs\Controller\Index', 'debug']);
     
-    $r->addRoute('GET', '/syntax', ['TierJig\Controller\Syntax', 'indexPage']);
-    $r->addRoute('GET', '/syntax/{example:\w+}', ['TierJig\Controller\Syntax', 'examplePage']);
+    $r->addRoute('GET', '/syntax', ['JigDocs\Controller\Syntax', 'indexPage']);
+    $r->addRoute('GET', '/syntax/{example:\w+}', ['JigDocs\Controller\Syntax', 'examplePage']);
 
-    $r->addRoute('GET', '/extending', ['TierJig\Controller\Extending', 'indexPage']);
-    $r->addRoute('GET', '/extending/{example:\w+}', ['TierJig\Controller\Extending', 'examplePage']);
+    $r->addRoute('GET', '/extending', ['JigDocs\Controller\Extending', 'indexPage']);
+    $r->addRoute('GET', '/extending/{example:\w+}', ['JigDocs\Controller\Extending', 'examplePage']);
     
-    $r->addRoute('GET', '/onePage', ['TierJig\Controller\Index', 'onePageExample']);
-    $r->addRoute('GET', '/executing', ['TierJig\Controller\Index', 'executing']);
-    $r->addRoute('GET', '/testingTemplates', ['TierJig\Controller\Index', 'testingTemplates']);
+    $r->addRoute('GET', '/onePage', ['JigDocs\Controller\Index', 'onePageExample']);
+    $r->addRoute('GET', '/executing', ['JigDocs\Controller\Index', 'executing']);
+    $r->addRoute('GET', '/testingTemplates', ['JigDocs\Controller\Index', 'testingTemplates']);
 
-    $r->addRoute('GET', '/userSetting', ['TierJig\Controller\UserSetting', 'updateSetting']);
-    $r->addRoute('POST', '/userSetting', ['TierJig\Controller\UserSetting', 'updateSetting']);
+    $r->addRoute('GET', '/userSetting', ['JigDocs\Controller\UserSetting', 'updateSetting']);
+    $r->addRoute('POST', '/userSetting', ['JigDocs\Controller\UserSetting', 'updateSetting']);
 
-    $r->addRoute('POST', '/deploy/githook', ['TierJig\Controller\GitWebHook', 'event']);
+    $r->addRoute('POST', '/deploy/githook', ['JigDocs\Controller\GitWebHook', 'event']);
 }
 
 
 function tierRoutesFunction(\FastRoute\RouteCollector $r)
 {
-    $r->addRoute('GET', '/', ['Tier\Controller\Index', 'renderIndexPage']);
+    $r->addRoute('GET', '/', ['TierDocs\Controller\Index', 'renderIndexPage']);
+    
+    
+    $r->addRoute('GET', '/executing', ['TierDocs\Controller\Index', 'renderExecutingPage']);
+    $r->addRoute('GET', '/dic', ['TierDocs\Controller\Index', 'renderDicPage']);
+    
+    
+    $r->addRoute('GET', '/executionControl', ['TierDocs\Controller\Index', 'renderExecutionControlPage']);
+    
+    
+    $r->addRoute('GET', '/examples', ['TierDocs\Controller\Index', 'renderExamplesPage']);
+    $r->addRoute('GET', '/examples/caching', ['TierDocs\Controller\Index', 'renderCachingPage']);
+    $r->addRoute('GET', '/examples/configuration', ['TierDocs\Controller\Index', 'renderConfigurationPage']);
+    $r->addRoute('GET', '/examples/contexts', ['TierDocs\Controller\Index', 'renderContextsPage']);
+    
     
 //    $r->addRoute('GET', '/debug', ['TierJig\Controller\Index', 'debug']);
 //    $r->addRoute('GET', '/syntax', ['TierJig\Controller\Syntax', 'indexPage']);
@@ -146,7 +160,19 @@ function getExampleClassnameFromTemplate($exampleName)
     $classname = str_replace('/', '', $exampleName);
 
     $classname = sprintf(
-        'TierJig\Data\Examples\\%sOutput',
+        'JigDocs\Data\Examples\\%sOutput',
+        $classname
+    );
+
+    return $classname;
+}
+
+function getTierExampleClassnameFromExampleName($exampleName)
+{
+    $classname = str_replace('/', '', $exampleName);
+
+    $classname = sprintf(
+        'TierDocs\Data\Examples\\%sOutput',
         $classname
     );
 
@@ -177,7 +203,7 @@ function renderOutput($exampleName)
     $classname = getExampleClassnameFromTemplate($exampleName);
 
     if (class_exists($classname) == false) {
-        throw new TierJigException("Class $classname is missing.");
+        throw new SiteException("Class $classname is missing.");
     }
 
     $object = new $classname();
@@ -197,7 +223,7 @@ function renderOutputFileStart(JigConverter $jigConverter, $extraText)
     $exampleName = trim($extraText);
     $classname = getExampleClassnameFromTemplate($exampleName);
     if (class_exists($classname) == false) {
-        throw new TierJigException("Class $classname is missing.");
+        throw new SiteException("Class $classname is missing.");
     }
 
     $object = new $classname();
@@ -244,18 +270,19 @@ function renderExampleCodeStart(JigConverter $jigConverter, $extraText)
     $filePattern = '#example=[\'"](.*)[\'"]#u';
     $valueMatchCount = preg_match($filePattern, $extraText, $valueMatches);
     if ($valueMatchCount == 0) {
-        throw new TierJigException("Failed to get value for injection");
+        throw new SiteException("Failed to get value for injection");
     }
     $filename = $valueMatches[1];
     $filename = str_replace('/', '_', $filename);
     $codeLines = getExampleCode($filename);
 
     if ($codeLines === false) {
-        throw new TierJigException("Failed to read code from file $filename");
+        throw new SiteException("Failed to read code from file $filename");
     }
+
     
     $code = implode("", $codeLines);
-    $highLightedCode = \TierJig\Site\CodeHighlighter::highlight($code);
+    $highLightedCode = \Site\CodeHighlighter::highlight($code);
     $jigConverter->addText($highLightedCode);
 }
 
@@ -269,6 +296,7 @@ function getExampleCode($exampleName)
         __DIR__ . '/../lib',
         __DIR__ . '/../src',
     ];
+    
 
     foreach ($srcDirectories as $srcDirectory) {
         $directory = new RecursiveDirectoryIterator($srcDirectory);
@@ -283,7 +311,7 @@ function getExampleCode($exampleName)
             $fileLines = file($filename);
     
             if (!$fileLines) {
-                throw new TierJigException("Failed to open $filename");
+                throw new SiteException("Failed to open $filename");
             }
     
             $firstLine = false;
@@ -376,7 +404,6 @@ function prepareJig(Jig $jig, $injector)
         'highlightCodeStart',
         'highlightCodeEnd'
     );
-    
 }
 
 function createJigDispatcher(Config $config)
@@ -406,7 +433,7 @@ function createTierDispatcher(Config $config)
 }
 
 
-function createScriptInclude(Config $config) //, ScriptVersion $scriptVersion)
+function createScriptInclude(Config $config)
 {
     $scriptVersion = new ScriptVersion(123);
     

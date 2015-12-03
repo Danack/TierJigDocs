@@ -2,7 +2,7 @@
 
 // This is a sample configuration file
 
-use TierJig\Config;
+use Site\Config;
 use Configurator\ConfiguratorException;
 use Jig\Jig;
 use Room11\Caching\LastModifiedStrategy;

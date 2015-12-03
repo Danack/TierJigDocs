@@ -13,7 +13,7 @@
     {inject name='scriptInclude' type='ScriptServer\Service\ScriptInclude'}
     
     
-    {inject name='colorScheme' type='TierJig\Model\ColorScheme'}
+    {inject name='colorScheme' type='Site\Model\ColorScheme'}
     
     <link rel='stylesheet' type='text/css' href='/css/{$colorScheme->getSelectedCssName()}.css' />
     

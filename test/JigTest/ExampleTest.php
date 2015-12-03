@@ -100,13 +100,15 @@ class ExampleTest extends BaseTestCase
     public function testUnitTesting()
     {
 //Example unitTesting_basic
-        $contactUsMock = Mockery::mock('TierJig\Model\ContactUs');
+        $contactUsMock = Mockery::mock('JigDocs\Model\ContactUs');
         $contactUsMock
             ->shouldReceive('render')
             ->atLeast()->times(1) //checks render is called at least once
             ->andReturn("This is a mock contact us string");
-        $this->injector->alias('TierJig\Model\ContactUs', get_class($contactUsMock));
+        $this->injector->alias('JigDocs\Model\ContactUs', get_class($contactUsMock));
         $this->injector->share($contactUsMock);
+        
+        $obj = $this->injector->make('JigDocs\Model\ContactUs');        
         $contents = $this->jig->renderTemplateFile('unitTesting/basic/correct');
 //Example end
         $this->saveExampleOutput('unitTesting/basic', $contents);
@@ -192,30 +194,4 @@ class ExampleTest extends BaseTestCase
 
 
 
-function getNamespace($namespaceClass)
-{
 
-    if (is_object($namespaceClass)) {
-        $namespaceClass = get_class($namespaceClass);
-    }
-
-    $lastSlashPosition = mb_strrpos($namespaceClass, '\\');
-
-    if ($lastSlashPosition !== false) {
-        return mb_substr($namespaceClass, 0, $lastSlashPosition);
-    }
-
-    return "";
-}
-
-
-function getClassName($namespaceClass)
-{
-    $lastSlashPosition = mb_strrpos($namespaceClass, '\\');
-
-    if ($lastSlashPosition !== false) {
-        return mb_substr($namespaceClass, $lastSlashPosition + 1);
-    }
-
-    return $namespaceClass;
-}

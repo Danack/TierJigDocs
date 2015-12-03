@@ -1,0 +1,43 @@
+
+/* <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" /> */
+
+h1 {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 23px;
+	font-style: normal;
+	font-variant: small-caps;
+	font-weight: bold;
+	line-height: 23px;
+}
+h3 {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 17px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 23px;
+}
+p {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 14px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	line-height: 23px;
+}
+blockquote {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 17px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 23px;
+}
+pre {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 11px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 23px;
+}

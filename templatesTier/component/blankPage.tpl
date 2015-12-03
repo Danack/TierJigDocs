@@ -15,13 +15,13 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">Jig</a>
+            <a class="navbar-brand" href="/">Tier</a>
         </div>
         <div class="collapse navbar-collapse" id="top-navigation">
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="/gettingStarted">Getting started</a></li>
                 <li>
-                    <a class="github" href="https://github.com/Danack/Jig">
+                    <a class="github" href="https://github.com/Danack/Tier">
                         <i class="fa fa-github"></i>
                     </a>
                 </li>

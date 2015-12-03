@@ -1,5 +1,5 @@
 
-{inject name='navItems' type='TierJig\Data\NavItems'}
+{inject name='navItems' type='TierDocs\Data\NavItems'}
 
 
 <nav class="bs-docs-sidebar hidden-print">
@@ -15,5 +15,5 @@
         {/foreach}
     </ul>
 
-    {include file='component/colorSelector'}
+    {* include file='component/colorSelector' *}
 </nav>
