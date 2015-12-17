@@ -1,21 +1,15 @@
-
 {extends file="component/blankPage"}
 
 {block name='content'}
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                
-                
-<h2>Functions</h2>
-                
-{renderTemplateFile syntax/basic/index}
-{/renderTemplateFile}
+  <div class="row panel panel-default">
+    <div class="col-md-12">
+        <h2>Functions</h2>
 
-{renderOutputFile syntax/basic}
-{/renderOutputFile}
+        {renderTemplateFile syntax/basic/index}
+        {/renderTemplateFile}
 
-            </div>
-        </div>
+        {renderOutputFile syntax/basic}
+        {/renderOutputFile}
     </div>
+  </div>
 {/block}

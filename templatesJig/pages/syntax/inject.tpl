@@ -1,22 +1,16 @@
-
 {extends file="component/blankPage"}
 
 {block name='content'}
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                
-                
-
-{renderTemplateFile syntax/injecting/index}
-{/renderTemplateFile}
+  <div class="row panel panel-default">
+    <div class="col-md-12">
 
 
-{renderOutputFile syntax/injecting}
-{/renderOutputFile}
-                
+        {renderTemplateFile syntax/injecting/index}
+        {/renderTemplateFile}
 
-            </div>
-        </div>
+
+        {renderOutputFile syntax/injecting}
+        {/renderOutputFile}
     </div>
+  </div>
 {/block}

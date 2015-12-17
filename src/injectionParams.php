@@ -7,9 +7,8 @@ $shares = [
     'Jig\JigRender',
     'Jig\Jig',
     'Jig\JigConverter',
-    'Intahwebz\Session',
-    'ScriptServer\Service\ScriptInclude',
-    'ASM\Session',
+    'ScriptHelper\ScriptInclude',
+    'ScriptHelper\ScriptVersion',
     'Room11\HTTP\HeadersSet'
 ];
 
@@ -19,18 +18,15 @@ $shares = [
 $aliases = [
     'Room11\HTTP\Request' => 'Room11\HTTP\Request\Request',
     'Room11\HTTP\Response' => 'Room11\HTTP\Response\Response',
+    'ScriptHelper\ScriptVersion' => 'ScriptHelper\ScriptVersion\DateScriptVersion',
     'Tier\VariableMap\VariableMap' => 'Tier\VariableMap\RequestVariableMap',
-    //'Intahwebz\Session' => 'Intahwebz\Session\Session',
+    'ScriptHelper\ScriptURLGenerator' => 'ScriptHelper\ScriptURLGenerator\StandardScriptURLGenerator'
 ];
 
 // Delegate the creation of types to callables.
 $delegates = [
     'Predis\Client' => 'createRedisClient',
-    //'Jig\JigConfig' => 'createJigConfig',
-    //'FastRoute\Dispatcher' => 'createDispatcher',
-    'ScriptServer\Service\ScriptInclude' => 'createScriptInclude',
-    //'ASM\SessionManager' => 'createSession',
-    'ASM\Session' => 'createSession',
+    'ScriptHelper\ScriptInclude' => 'createScriptInclude',
 ];
 
 // If necessary, define some params that can be injected purely by name.

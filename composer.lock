@@ -4,58 +4,8 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a4e032d26834b43bec1f8e1bb755dd98",
+    "hash": "d2ce36ea6cf82453fc328a991c85e702",
     "packages": [
-        {
-            "name": "danack/asm",
-            "version": "0.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Danack/AdvancedSessionManagement.git",
-                "reference": "37c5370457bf0d3daae6548eb458d1799880f88a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Danack/AdvancedSessionManagement/zipball/37c5370457bf0d3daae6548eb458d1799880f88a",
-                "reference": "37c5370457bf0d3daae6548eb458d1799880f88a",
-                "shasum": ""
-            },
-            "require": {
-                "ircmaxell/random-lib": "^1.1.0",
-                "predis/predis": "^1.0.1"
-            },
-            "require-dev": {
-                "mikey179/vfsstream": "1.5.0",
-                "phpunit/phpunit": "4.6.6",
-                "rdlowrey/auryn": "^1.0.2"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "ASM": "lib/"
-                },
-                "files": [
-                    "lib/ASM/Functions.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Danack",
-                    "email": "Danack@basereality.com"
-                }
-            ],
-            "description": "A userland replacement for PHP's session management.",
-            "time": "2015-11-01 01:04:14"
-        },
         {
             "name": "danack/console",
             "version": "v2.6.1",
@@ -117,17 +67,59 @@
             "time": "2015-01-23 14:07:48"
         },
         {
-            "name": "danack/jig",
-            "version": "0.17.0",
+            "name": "danack/filefilter",
+            "version": "0.0.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Danack/Jig.git",
-                "reference": "b909d8fd7dfc280896efdf20e3bb59896c39fa0e"
+                "url": "https://github.com/Danack/FileFilter.git",
+                "reference": "974977862f45296dcbba223931ad1ae5d8e1b3eb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Danack/Jig/zipball/b909d8fd7dfc280896efdf20e3bb59896c39fa0e",
-                "reference": "b909d8fd7dfc280896efdf20e3bb59896c39fa0e",
+                "url": "https://api.github.com/repos/Danack/FileFilter/zipball/974977862f45296dcbba223931ad1ae5d8e1b3eb",
+                "reference": "974977862f45296dcbba223931ad1ae5d8e1b3eb",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.6.6",
+                "rdlowrey/auryn": "^1.0.2"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "FileFilter": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Danack",
+                    "email": "Danack@basereality.com"
+                }
+            ],
+            "description": "A set of transforming file filters.",
+            "time": "2015-12-17 14:25:28"
+        },
+        {
+            "name": "danack/jig",
+            "version": "0.17.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Danack/Jig.git",
+                "reference": "9f88fd2bab4017b2c95e5a910ff43e1dc352aa90"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Danack/Jig/zipball/9f88fd2bab4017b2c95e5a910ff43e1dc352aa90",
+                "reference": "9f88fd2bab4017b2c95e5a910ff43e1dc352aa90",
                 "shasum": ""
             },
             "require": {
@@ -164,30 +156,74 @@
                 "template",
                 "view"
             ],
-            "time": "2015-10-29 16:26:21"
+            "time": "2015-12-14 00:44:50"
         },
         {
-            "name": "danack/tier",
-            "version": "0.1.5",
+            "name": "danack/scripthelper",
+            "version": "0.0.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Danack/Tier.git",
-                "reference": "b6c6d786bde34e29549e12b5c54756791fc1552a"
+                "url": "https://github.com/Danack/ScriptHelper.git",
+                "reference": "e7025e1a98298351b8883f9bb396ce6e36934a92"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Danack/Tier/zipball/b6c6d786bde34e29549e12b5c54756791fc1552a",
-                "reference": "b6c6d786bde34e29549e12b5c54756791fc1552a",
+                "url": "https://api.github.com/repos/Danack/ScriptHelper/zipball/e7025e1a98298351b8883f9bb396ce6e36934a92",
+                "reference": "e7025e1a98298351b8883f9bb396ce6e36934a92",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.6.6",
+                "rdlowrey/auryn": "^1.0.2"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "ScriptHelper": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Danack",
+                    "email": "Danack@basereality.com"
+                }
+            ],
+            "description": "A library that helps add JS and CSS scripts to web pages, and then serve the requested scripts.",
+            "time": "2015-12-17 14:26:45"
+        },
+        {
+            "name": "danack/tier",
+            "version": "0.2.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Danack/Tier.git",
+                "reference": "8850fe475265bd962d56261ac9ac36b885f8c332"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Danack/Tier/zipball/8850fe475265bd962d56261ac9ac36b885f8c332",
+                "reference": "8850fe475265bd962d56261ac9ac36b885f8c332",
                 "shasum": ""
             },
             "require": {
                 "rdlowrey/auryn": "^1.0.2"
             },
             "require-dev": {
+                "danack/jig": "^0.17.0",
                 "mockery/mockery": "0.9.1",
                 "phpunit/phpunit": "3.7.*",
                 "room11/caching": "^0.0.4",
-                "room11/http": "^0.0.3"
+                "room11/http": "^0.0.4",
+                "squizlabs/php_codesniffer": "^2.0.0"
             },
             "type": "library",
             "autoload": {
@@ -213,7 +249,7 @@
                 "di",
                 "example"
             ],
-            "time": "2015-11-01 00:39:25"
+            "time": "2015-12-17 17:45:47"
         },
         {
             "name": "fluentdom/fluentdom",
@@ -319,101 +355,6 @@
                 "utf-8"
             ],
             "time": "2015-10-06 21:13:22"
-        },
-        {
-            "name": "ircmaxell/random-lib",
-            "version": "v1.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ircmaxell/RandomLib.git",
-                "reference": "13efa4368bb2ac88bb3b1459b487d907de4dbf7c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ircmaxell/RandomLib/zipball/13efa4368bb2ac88bb3b1459b487d907de4dbf7c",
-                "reference": "13efa4368bb2ac88bb3b1459b487d907de4dbf7c",
-                "shasum": ""
-            },
-            "require": {
-                "ircmaxell/security-lib": "1.0.*@dev",
-                "php": ">=5.3.2"
-            },
-            "require-dev": {
-                "mikey179/vfsstream": "1.1.*",
-                "phpunit/phpunit": "3.7.*"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "RandomLib": "lib"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Anthony Ferrara",
-                    "email": "ircmaxell@ircmaxell.com",
-                    "homepage": "http://blog.ircmaxell.com"
-                }
-            ],
-            "description": "A Library For Generating Secure Random Numbers",
-            "homepage": "https://github.com/ircmaxell/RandomLib",
-            "keywords": [
-                "cryptography",
-                "random",
-                "random-numbers",
-                "random-strings"
-            ],
-            "time": "2015-01-15 16:31:45"
-        },
-        {
-            "name": "ircmaxell/security-lib",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ircmaxell/SecurityLib.git",
-                "reference": "80934de3c482dcafb46b5756e59ebece082b6dc7"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ircmaxell/SecurityLib/zipball/80934de3c482dcafb46b5756e59ebece082b6dc7",
-                "reference": "80934de3c482dcafb46b5756e59ebece082b6dc7",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.2"
-            },
-            "require-dev": {
-                "mikey179/vfsstream": "1.1.*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "SecurityLib": "lib"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Anthony Ferrara",
-                    "email": "ircmaxell@ircmaxell.com",
-                    "homepage": "http://blog.ircmaxell.com"
-                }
-            ],
-            "description": "A Base Security Library",
-            "homepage": "https://github.com/ircmaxell/PHP-SecurityLib",
-            "time": "2013-04-30 18:00:34"
         },
         {
             "name": "leafo/lessphp",
@@ -659,56 +600,6 @@
             "time": "2014-03-17 04:51:51"
         },
         {
-            "name": "predis/predis",
-            "version": "v1.0.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/nrk/predis.git",
-                "reference": "84060b9034d756b4d79641667d7f9efe1aeb8e04"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/nrk/predis/zipball/84060b9034d756b4d79641667d7f9efe1aeb8e04",
-                "reference": "84060b9034d756b4d79641667d7f9efe1aeb8e04",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.2"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~4.0"
-            },
-            "suggest": {
-                "ext-curl": "Allows access to Webdis when paired with phpiredis",
-                "ext-phpiredis": "Allows faster serialization and deserialization of the Redis protocol"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Predis\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Daniele Alessandri",
-                    "email": "suppakilla@gmail.com",
-                    "homepage": "http://clorophilla.net"
-                }
-            ],
-            "description": "Flexible and feature-complete PHP client library for Redis",
-            "homepage": "http://github.com/nrk/predis",
-            "keywords": [
-                "nosql",
-                "predis",
-                "redis"
-            ],
-            "time": "2015-07-30 18:34:15"
-        },
-        {
             "name": "rdlowrey/auryn",
             "version": "1.1.0",
             "source": {
@@ -816,16 +707,16 @@
         },
         {
             "name": "room11/http",
-            "version": "0.0.4",
+            "version": "0.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Danack/HTTP.git",
-                "reference": "2c95b9ff169a52dc8bb121960fa5cf975adc4599"
+                "reference": "6b3a970eb379abeb174d6f84f610bb207f140b5c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Danack/HTTP/zipball/2c95b9ff169a52dc8bb121960fa5cf975adc4599",
-                "reference": "2c95b9ff169a52dc8bb121960fa5cf975adc4599",
+                "url": "https://api.github.com/repos/Danack/HTTP/zipball/6b3a970eb379abeb174d6f84f610bb207f140b5c",
+                "reference": "6b3a970eb379abeb174d6f84f610bb207f140b5c",
                 "shasum": ""
             },
             "require-dev": {
@@ -856,26 +747,29 @@
                 "interface",
                 "room11"
             ],
-            "time": "2015-10-31 16:56:04"
+            "time": "2015-11-16 20:42:31"
         },
         {
             "name": "squizlabs/php_codesniffer",
-            "version": "2.3.4",
+            "version": "2.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-                "reference": "11a2545c44a5915f883e2e5ec12e14ed345e3ab2"
+                "reference": "e4fb41d5d0387d556e2c25534d630b3cce90ea67"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/11a2545c44a5915f883e2e5ec12e14ed345e3ab2",
-                "reference": "11a2545c44a5915f883e2e5ec12e14ed345e3ab2",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/e4fb41d5d0387d556e2c25534d630b3cce90ea67",
+                "reference": "e4fb41d5d0387d556e2c25534d630b3cce90ea67",
                 "shasum": ""
             },
             "require": {
                 "ext-tokenizer": "*",
                 "ext-xmlwriter": "*",
                 "php": ">=5.1.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
             },
             "bin": [
                 "scripts/phpcs",
@@ -930,7 +824,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2015-09-09 00:18:50"
+            "time": "2015-12-11 00:12:46"
         }
     ],
     "packages-dev": [
@@ -1486,28 +1380,28 @@
         },
         {
             "name": "sebastian/diff",
-            "version": "1.3.0",
+            "version": "1.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/diff.git",
-                "reference": "863df9687835c62aa423a22412d26fa2ebde3fd3"
+                "reference": "13edfd8706462032c2f52b4b862974dd46b71c9e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/863df9687835c62aa423a22412d26fa2ebde3fd3",
-                "reference": "863df9687835c62aa423a22412d26fa2ebde3fd3",
+                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/13edfd8706462032c2f52b4b862974dd46b71c9e",
+                "reference": "13edfd8706462032c2f52b4b862974dd46b71c9e",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.2"
+                "phpunit/phpunit": "~4.8"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.3-dev"
+                    "dev-master": "1.4-dev"
                 }
             },
             "autoload": {
@@ -1530,24 +1424,24 @@
                 }
             ],
             "description": "Diff implementation",
-            "homepage": "http://www.github.com/sebastianbergmann/diff",
+            "homepage": "https://github.com/sebastianbergmann/diff",
             "keywords": [
                 "diff"
             ],
-            "time": "2015-02-22 15:13:53"
+            "time": "2015-12-08 07:14:41"
         },
         {
             "name": "sebastian/environment",
-            "version": "1.3.2",
+            "version": "1.3.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/environment.git",
-                "reference": "6324c907ce7a52478eeeaede764f48733ef5ae44"
+                "reference": "6e7133793a8e5a5714a551a8324337374be209df"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/6324c907ce7a52478eeeaede764f48733ef5ae44",
-                "reference": "6324c907ce7a52478eeeaede764f48733ef5ae44",
+                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/6e7133793a8e5a5714a551a8324337374be209df",
+                "reference": "6e7133793a8e5a5714a551a8324337374be209df",
                 "shasum": ""
             },
             "require": {
@@ -1584,7 +1478,7 @@
                 "environment",
                 "hhvm"
             ],
-            "time": "2015-08-03 06:14:51"
+            "time": "2015-12-02 08:37:27"
         },
         {
             "name": "sebastian/exporter",
@@ -1705,16 +1599,16 @@
         },
         {
             "name": "sebastian/recursion-context",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/recursion-context.git",
-                "reference": "994d4a811bafe801fb06dccbee797863ba2792ba"
+                "reference": "913401df809e99e4f47b27cdd781f4a258d58791"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/recursion-context/zipball/994d4a811bafe801fb06dccbee797863ba2792ba",
-                "reference": "994d4a811bafe801fb06dccbee797863ba2792ba",
+                "url": "https://api.github.com/repos/sebastianbergmann/recursion-context/zipball/913401df809e99e4f47b27cdd781f4a258d58791",
+                "reference": "913401df809e99e4f47b27cdd781f4a258d58791",
                 "shasum": ""
             },
             "require": {
@@ -1754,7 +1648,7 @@
             ],
             "description": "Provides functionality to recursively process PHP variables",
             "homepage": "http://www.github.com/sebastianbergmann/recursion-context",
-            "time": "2015-06-21 08:04:50"
+            "time": "2015-11-11 19:50:13"
         },
         {
             "name": "sebastian/version",
@@ -1793,16 +1687,16 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v2.7.6",
+            "version": "v2.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "eca9019c88fbe250164affd107bc8057771f3f4d"
+                "reference": "f79824187de95064a2f5038904c4d7f0227fedb5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/eca9019c88fbe250164affd107bc8057771f3f4d",
-                "reference": "eca9019c88fbe250164affd107bc8057771f3f4d",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/f79824187de95064a2f5038904c4d7f0227fedb5",
+                "reference": "f79824187de95064a2f5038904c4d7f0227fedb5",
                 "shasum": ""
             },
             "require": {
@@ -1811,13 +1705,16 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.7-dev"
+                    "dev-master": "2.8-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
                     "Symfony\\Component\\Yaml\\": ""
-                }
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -1835,7 +1732,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2015-10-11 09:39:48"
+            "time": "2015-11-30 12:35:10"
         }
     ],
     "aliases": [],

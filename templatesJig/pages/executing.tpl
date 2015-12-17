@@ -1,16 +1,14 @@
-
 {extends file="component/blankPage"}
 
 {block name='content'}
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-<p>
-    Because all the dependencies that are needed by a template need to be passed in as variables
-    
-    Because
-    
-</p>
+  <div class="row panel panel-default">
+    <div class="col-md-12">
+        <p>
+          Because all the dependencies that are needed by a template need to be passed in as variables
+
+          Because
+
+        </p>
                 
                 
 <pre>
@@ -35,11 +33,7 @@ $contents = $this->injector->execute([$className, 'render']);
     
     
 </pre>
-                
-                
 
-         
-            </div>
-        </div>
     </div>
+  </div>
 {/block}

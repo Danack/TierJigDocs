@@ -1,21 +1,17 @@
-
 {extends file="component/blankPage"}
 
 {block name='content'}
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-    
-{renderTemplateFile syntax/includeFile/index}
-{/renderTemplateFile}
-                
-{renderTemplateFile syntax/includeFile/includedFile}
-{/renderTemplateFile}
+  <div class="row panel panel-default">
+    <div class="col-md-12">
 
-{renderOutputFile syntax/includeFile}
-{/renderOutputFile}
+        {renderTemplateFile syntax/includeFile/index}
+        {/renderTemplateFile}
 
-            </div>
-        </div>
+        {renderTemplateFile syntax/includeFile/includedFile}
+        {/renderTemplateFile}
+
+        {renderOutputFile syntax/includeFile}
+        {/renderOutputFile}
     </div>
+  </div>
 {/block}

@@ -1,6 +1,6 @@
 <?php
 
-use TierJig\Config;
+use Site\Config;
 
 $env = [
     Config::JIG_COMPILE_CHECK,

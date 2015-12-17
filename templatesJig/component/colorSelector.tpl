@@ -1,5 +1,5 @@
 
-{inject name='scriptInclude' type='ScriptServer\Service\ScriptInclude'}
+{inject name='scriptInclude' type='ScriptHelper\ScriptInclude'}
 
 
 {inject name='colorScheme' type='Site\Model\ColorScheme'}
@@ -12,6 +12,6 @@
 </select>
 
 
-{$scriptInclude->addBodyLoadFunction("initColorSelector('#colorSelector');")}
+{$scriptInclude->addBodyLoadJS("initColorSelector('#colorSelector');")}
     
     

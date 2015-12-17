@@ -1,0 +1,193 @@
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto'), local('Roboto-Regular'), /* from http://fonts.gstatic.com/s/roboto/v15/5YB-ifwqHP20Yn46l_BDhA.eot */ url('/fonts/Roboto_400.eot?#iefix') format('embedded-opentype'), /* from http://fonts.gstatic.com/s/roboto/v15/2UX7WLTfW3W8TclTUvlFyQ.woff */ url('/fonts/Roboto_400.woff') format('woff'), /* from http://fonts.gstatic.com/s/roboto/v15/CWB0XYA8bzo0kSThX0UTuA.woff2 */ url('/fonts/Roboto_400.woff2') format('woff2'), /* from http://fonts.gstatic.com/l/font?kit=_YZOZaQ9UBZzaxiLBLcgZg&skey=a0a0114a1dcab3ac#Roboto */ url('/fonts/Roboto_400.svg#Roboto') format('svg'), /* from http://fonts.gstatic.com/s/roboto/v15/zN7GBFwfMP4uA6AR0HCoLQ.ttf */ url('/fonts/Roboto_400.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Roboto Bold'), local('Roboto-Bold'), /* from http://fonts.gstatic.com/s/roboto/v15/d-6IYplOFocCacKzxwXSOPY6323mHUZFJMgTvxaG2iE.eot */ url('/fonts/Roboto_700.eot?#iefix') format('embedded-opentype'), /* from http://fonts.gstatic.com/s/roboto/v15/d-6IYplOFocCacKzxwXSOD8E0i7KZn-EPnyo3HZu7kw.woff */ url('/fonts/Roboto_700.woff') format('woff'), /* from http://fonts.gstatic.com/s/roboto/v15/d-6IYplOFocCacKzxwXSOFtXRa8TVwTICgirnJhmVJw.woff2 */ url('/fonts/Roboto_700.woff2') format('woff2'), /* from http://fonts.gstatic.com/l/font?kit=d-6IYplOFocCacKzxwXSOJbd9NUM7myrQQz30yPaGQ4&skey=c06e7213f788649e#Roboto */ url('/fonts/Roboto_700.svg#Roboto') format('svg'), /* from http://fonts.gstatic.com/s/roboto/v15/d-6IYplOFocCacKzxwXSOKCWcynf_cDxXwCLxiixG1c.ttf */ url('/fonts/Roboto_700.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), /* from http://fonts.gstatic.com/s/opensans/v13/cJZKeOuBrn4kERxqtaUH3fY6323mHUZFJMgTvxaG2iE.eot */ url('/fonts/Open_Sans_400.eot?#iefix') format('embedded-opentype'), /* from http://fonts.gstatic.com/s/opensans/v13/cJZKeOuBrn4kERxqtaUH3T8E0i7KZn-EPnyo3HZu7kw.woff */ url('/fonts/Open_Sans_400.woff') format('woff'), /* from http://fonts.gstatic.com/s/opensans/v13/cJZKeOuBrn4kERxqtaUH3VtXRa8TVwTICgirnJhmVJw.woff2 */ url('/fonts/Open_Sans_400.woff2') format('woff2'), /* from http://fonts.gstatic.com/l/font?kit=cJZKeOuBrn4kERxqtaUH3Zbd9NUM7myrQQz30yPaGQ4&skey=62c1cbfccc78b4b2#OpenSans */ url('/fonts/Open_Sans_400.svg#OpenSans') format('svg'), /* from http://fonts.gstatic.com/s/opensans/v13/cJZKeOuBrn4kERxqtaUH3aCWcynf_cDxXwCLxiixG1c.ttf */ url('/fonts/Open_Sans_400.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Open Sans Bold'), local('OpenSans-Bold'), /* from http://fonts.gstatic.com/s/opensans/v13/k3k702ZOKiLJc3WVjuplzHZ2MAKAc2x4R1uOSeegc5U.eot */ url('/fonts/Open_Sans_700.eot?#iefix') format('embedded-opentype'), /* from http://fonts.gstatic.com/s/opensans/v13/k3k702ZOKiLJc3WVjuplzHhCUOGz7vYGh680lGh-uXM.woff */ url('/fonts/Open_Sans_700.woff') format('woff'), /* from http://fonts.gstatic.com/s/opensans/v13/k3k702ZOKiLJc3WVjuplzOgdm0LZdjqr5-oayXSOefg.woff2 */ url('/fonts/Open_Sans_700.woff2') format('woff2'), /* from http://fonts.gstatic.com/l/font?kit=k3k702ZOKiLJc3WVjuplzFlIn5tFQcqMuf-jhyJP0ps&skey=cd9e1a36bb25a3c3#OpenSans */ url('/fonts/Open_Sans_700.svg#OpenSans') format('svg'), /* from http://fonts.gstatic.com/s/opensans/v13/k3k702ZOKiLJc3WVjuplzInF5uFdDttMLvmWuJdhhgs.ttf */ url('/fonts/Open_Sans_700.ttf') format('truetype');
+}
+.text-primary,
+.text-primary:hover {
+  color: #2a9fd6;
+}
+.text-success,
+.text-success:hover {
+  color: #77b300;
+}
+.text-danger,
+.text-danger:hover {
+  color: #cc0000;
+}
+.text-warning,
+.text-warning:hover {
+  color: #ff8800;
+}
+.text-info,
+.text-info:hover {
+  color: #9933cc;
+}
+.bg-success,
+.bg-info,
+.bg-warning,
+.bg-danger {
+  color: #fff;
+}
+table,
+.table {
+  color: #fff;
+}
+table a:not(.btn),
+.table a:not(.btn) {
+  color: #fff;
+  text-decoration: underline;
+}
+table .dropdown-menu a,
+.table .dropdown-menu a {
+  text-decoration: none;
+}
+table .text-muted,
+.table .text-muted {
+  color: #888888;
+}
+.table-responsive > .table {
+  background-color: #181818;
+}
+.has-warning .help-block,
+.has-warning .control-label,
+.has-warning .radio,
+.has-warning .checkbox,
+.has-warning .radio-inline,
+.has-warning .checkbox-inline,
+.has-warning.radio label,
+.has-warning.checkbox label,
+.has-warning.radio-inline label,
+.has-warning.checkbox-inline label,
+.has-warning .form-control-feedback {
+  color: #ff8800;
+}
+.has-warning .form-control,
+.has-warning .form-control:focus,
+.has-warning .input-group-addon {
+  border-color: #ff8800;
+}
+.has-error .help-block,
+.has-error .control-label,
+.has-error .radio,
+.has-error .checkbox,
+.has-error .radio-inline,
+.has-error .checkbox-inline,
+.has-error.radio label,
+.has-error.checkbox label,
+.has-error.radio-inline label,
+.has-error.checkbox-inline label,
+.has-error .form-control-feedback {
+  color: #cc0000;
+}
+.has-error .form-control,
+.has-error .form-control:focus,
+.has-error .input-group-addon {
+  border-color: #cc0000;
+}
+.has-success .help-block,
+.has-success .control-label,
+.has-success .radio,
+.has-success .checkbox,
+.has-success .radio-inline,
+.has-success .checkbox-inline,
+.has-success.radio label,
+.has-success.checkbox label,
+.has-success.radio-inline label,
+.has-success.checkbox-inline label,
+.has-success .form-control-feedback {
+  color: #77b300;
+}
+.has-success .form-control,
+.has-success .form-control:focus,
+.has-success .input-group-addon {
+  border-color: #77b300;
+}
+legend {
+  color: #fff;
+}
+.input-group-addon {
+  background-color: #424242;
+}
+.nav-tabs a,
+.nav-pills a,
+.breadcrumb a,
+.pager a {
+  color: #fff;
+}
+.alert .alert-link,
+.alert a {
+  color: #ffffff;
+  text-decoration: underline;
+}
+.alert .close {
+  text-decoration: none;
+}
+.close {
+  color: #fff;
+  text-decoration: none;
+  opacity: 0.4;
+}
+.close:hover,
+.close:focus {
+  color: #fff;
+  opacity: 1;
+}
+a.thumbnail:hover,
+a.thumbnail:focus,
+a.thumbnail.active {
+  border-color: #282828;
+}
+a.list-group-item.active,
+a.list-group-item.active:hover,
+a.list-group-item.active:focus {
+  border-color: #282828;
+}
+a.list-group-item-success.active {
+  background-color: #77b300;
+}
+a.list-group-item-success.active:hover,
+a.list-group-item-success.active:focus {
+  background-color: #669a00;
+}
+a.list-group-item-warning.active {
+  background-color: #ff8800;
+}
+a.list-group-item-warning.active:hover,
+a.list-group-item-warning.active:focus {
+  background-color: #e67a00;
+}
+a.list-group-item-danger.active {
+  background-color: #cc0000;
+}
+a.list-group-item-danger.active:hover,
+a.list-group-item-danger.active:focus {
+  background-color: #b30000;
+}
+.jumbotron h1,
+.jumbotron h2,
+.jumbotron h3,
+.jumbotron h4,
+.jumbotron h5,
+.jumbotron h6 {
+  color: #fff;
+}

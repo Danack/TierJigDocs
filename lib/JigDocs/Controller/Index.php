@@ -33,10 +33,15 @@ class Index
         return $tierJig->createTemplateTier('pages/debug');
     }
     
+
+    public function gettingStarted(TierJig $tierJig)
+    {
+        return $tierJig->createTemplateTier('pages/gettingStarted');
+    }
+    
+    
     public function renderPluginsPage(TierJig $tierJig)
     {
-        
-        
         return $tierJig->createTemplateTier('pages/plugins');
     }
     

@@ -16,7 +16,7 @@ class NavItems implements \IteratorAggregate
         ExtendingExamples $extendingExamples
     ) { 
         $this->items[] = new NavItem('/', 'Index');
-        $this->items[] = new NavItem('/executing', 'Getting started');
+        $this->items[] = new NavItem('/gettingStarted', 'Getting started');
         $this->items[] = new NavItem('/syntax', 'Syntax', $syntaxExamples);
         $this->items[] = new NavItem('/extending', 'Extending Jig', $extendingExamples);
         $this->items[] = new NavItem('/testingTemplates', 'Unit testing templates');

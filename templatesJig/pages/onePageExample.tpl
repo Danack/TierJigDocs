@@ -1,19 +1,16 @@
-
 {extends file="component/blankPage"}
 
 {block name='content'}
-<div class="container-fluid">
-  <div class="row">
+  <div class="row panel panel-default">
     <div class="col-md-12">
 
-      <h2>The one page example</h2>
+        <h2>The one page example</h2>
 
-      <p>
-This example shows all of the features of Jig on a single page. 
-        
-      </p>
+        <p>
+          This example shows all of the features of Jig on a single page.
 
-     </div>
-   </div>
- </div>
+        </p>
+
+    </div>
+  </div>
 {/block}

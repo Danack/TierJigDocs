@@ -1,0 +1,36 @@
+@font-face {
+	font-family: 'Roboto';
+	font-style: normal;
+	font-weight: 400;
+	src:
+		local('Roboto'),
+		local('Roboto-Regular'),
+		/* from http://fonts.gstatic.com/s/roboto/v15/5YB-ifwqHP20Yn46l_BDhA.eot */
+		url('/fonts/Roboto_400.eot?#iefix') format('embedded-opentype'),
+		/* from http://fonts.gstatic.com/s/roboto/v15/2UX7WLTfW3W8TclTUvlFyQ.woff */
+		url('/fonts/Roboto_400.woff') format('woff'),
+		/* from http://fonts.gstatic.com/s/roboto/v15/CWB0XYA8bzo0kSThX0UTuA.woff2 */
+		url('/fonts/Roboto_400.woff2') format('woff2'),
+		/* from http://fonts.gstatic.com/l/font?kit=_YZOZaQ9UBZzaxiLBLcgZg&skey=a0a0114a1dcab3ac#Roboto */
+		url('/fonts/Roboto_400.svg#Roboto') format('svg'),
+		/* from http://fonts.gstatic.com/s/roboto/v15/zN7GBFwfMP4uA6AR0HCoLQ.ttf */
+		url('/fonts/Roboto_400.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Roboto';
+	font-style: normal;
+	font-weight: 700;
+	src:
+		local('Roboto Bold'),
+		local('Roboto-Bold'),
+		/* from http://fonts.gstatic.com/s/roboto/v15/d-6IYplOFocCacKzxwXSOPY6323mHUZFJMgTvxaG2iE.eot */
+		url('/fonts/Roboto_700.eot?#iefix') format('embedded-opentype'),
+		/* from http://fonts.gstatic.com/s/roboto/v15/d-6IYplOFocCacKzxwXSOD8E0i7KZn-EPnyo3HZu7kw.woff */
+		url('/fonts/Roboto_700.woff') format('woff'),
+		/* from http://fonts.gstatic.com/s/roboto/v15/d-6IYplOFocCacKzxwXSOFtXRa8TVwTICgirnJhmVJw.woff2 */
+		url('/fonts/Roboto_700.woff2') format('woff2'),
+		/* from http://fonts.gstatic.com/l/font?kit=d-6IYplOFocCacKzxwXSOJbd9NUM7myrQQz30yPaGQ4&skey=c06e7213f788649e#Roboto */
+		url('/fonts/Roboto_700.svg#Roboto') format('svg'),
+		/* from http://fonts.gstatic.com/s/roboto/v15/d-6IYplOFocCacKzxwXSOKCWcynf_cDxXwCLxiixG1c.ttf */
+		url('/fonts/Roboto_700.ttf') format('truetype');
+}

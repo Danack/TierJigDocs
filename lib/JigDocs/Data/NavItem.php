@@ -47,7 +47,7 @@ class NavItem
         if ($this->examples == null) {
             return '';
         }
-        $output = "<li>";
+        $output = "<li class='subItem'>";
         $output .= $this->examples->renderList();
         $output .= "</li>";
         

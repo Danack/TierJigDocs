@@ -12,6 +12,6 @@
 </select>
 
 
-{$scriptInclude->addBodyLoadFunction("initColorSelector('#colorSelector');")}
+{$scriptInclude->addBodyLoadJS("initColorSelector('#colorSelector');")}
     
     
