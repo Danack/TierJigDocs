@@ -9,7 +9,7 @@ use Room11\Caching\LastModifiedStrategy;
 
 $default = [
     'app_name' => 'tierjigdocs',
-    'app_sitename' => 'tierjigdocs',
+    'app_sitename' => 'phpjig',
     'nginx_sendFile' => 'off',
     Config::SCRIPT_VERSION => date('jmyhis')
 ];
