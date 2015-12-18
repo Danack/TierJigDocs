@@ -9,23 +9,29 @@ $shares = [
     'Jig\JigConverter',
     'ScriptHelper\ScriptInclude',
     'ScriptHelper\ScriptVersion',
-    'Room11\HTTP\HeadersSet'
+    'Room11\HTTP\HeadersSet',
+    new \FileFilter\YuiCompressorPath("/usr/lib/yuicompressor.jar"),
+    new \Tier\Path\AutogenPath( __DIR__.'/../autogen/'),
+    new \Tier\Path\CachePath(__DIR__.'/../var/cache/'),
+    new \Tier\Path\ExternalLibPath(__DIR__.'/../lib/'),
+    new \Tier\Path\WebRootPath(__DIR__.'/../public/'),
 ];
-
 
 // Alias interfaces (or classes) to the actual types that should be used 
 // where they are required. 
 $aliases = [
     'Room11\HTTP\Request' => 'Room11\HTTP\Request\Request',
     'Room11\HTTP\Response' => 'Room11\HTTP\Response\Response',
+    'ScriptHelper\FilePacker' => 'ScriptHelper\FilePacker\YuiFilePacker',
+    'ScriptHelper\ScriptURLGenerator' => 'ScriptHelper\ScriptURLGenerator\StandardScriptURLGenerator',
     'ScriptHelper\ScriptVersion' => 'ScriptHelper\ScriptVersion\DateScriptVersion',
     'Tier\VariableMap\VariableMap' => 'Tier\VariableMap\RequestVariableMap',
-    'ScriptHelper\ScriptURLGenerator' => 'ScriptHelper\ScriptURLGenerator\StandardScriptURLGenerator'
 ];
 
 // Delegate the creation of types to callables.
 $delegates = [
     'Predis\Client' => 'createRedisClient',
+    'Room11\Caching\LastModifiedStrategy' => 'createCaching',
     'ScriptHelper\ScriptInclude' => 'createScriptInclude',
 ];
 

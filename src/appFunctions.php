@@ -45,6 +45,8 @@ function createJigConfigForTierDocs(Config $config)
 
 function jigRoutesFunction(\FastRoute\RouteCollector $r)
 {
+    $r->addRoute('GET', "/css/{commaSeparatedFilenames}", ['ScriptHelper\Controller\ScriptServer', 'serveCSS']);
+    $r->addRoute('GET', '/js/{commaSeparatedFilenames}', ['ScriptHelper\Controller\ScriptServer', 'serveJavascript']);
     $r->addRoute('GET', '/', ['JigDocs\Controller\Index', 'renderIndexPage']);
     $r->addRoute('GET', '/debug', ['JigDocs\Controller\Index', 'debug']);
     $r->addRoute('GET', '/syntax', ['JigDocs\Controller\Syntax', 'indexPage']);
@@ -53,8 +55,7 @@ function jigRoutesFunction(\FastRoute\RouteCollector $r)
     $r->addRoute('GET', '/extending/{example:\w+}', ['JigDocs\Controller\Extending', 'examplePage']);
     $r->addRoute('GET', '/onePage', ['JigDocs\Controller\Index', 'onePageExample']);
     $r->addRoute('GET', '/gettingStarted', ['JigDocs\Controller\Index', 'gettingStarted']);
-    
-    
+
     $r->addRoute('GET', '/testingTemplates', ['JigDocs\Controller\Index', 'testingTemplates']);
     $r->addRoute('GET', '/userSetting', ['JigDocs\Controller\UserSetting', 'updateSetting']);
     $r->addRoute('POST', '/userSetting', ['JigDocs\Controller\UserSetting', 'updateSetting']);
@@ -63,6 +64,8 @@ function jigRoutesFunction(\FastRoute\RouteCollector $r)
 
 function tierRoutesFunction(\FastRoute\RouteCollector $r)
 {
+    $r->addRoute('GET', "/css/{commaSeparatedFilenames}", ['ScriptHelper\Controller\ScriptServer', 'serveCSS']);
+    $r->addRoute('GET', '/js/{commaSeparatedFilenames}', ['ScriptHelper\Controller\ScriptServer', 'serveJavascript']);
     $r->addRoute('GET', '/', ['TierDocs\Controller\Index', 'renderIndexPage']);
     $r->addRoute('GET', '/executing', ['TierDocs\Controller\Index', 'renderExecutingPage']);
     $r->addRoute('GET', '/dic', ['TierDocs\Controller\Index', 'renderDicPage']);
@@ -222,13 +225,17 @@ function createTierDispatcher(Config $config)
     return $dispatcher;
 }
 
+function createCaching()
+{
+    return new \Room11\Caching\LastModified\Revalidate(3600, 1200);
+}
 
 function createScriptInclude(
     Config $config,
     \ScriptHelper\ScriptURLGenerator $scriptURLGenerator
 ) {
     $packScript = $config->getKey(Config::SCRIPT_PACKING);
-
+    $packScript = true;
     if ($packScript) {
         return new \ScriptHelper\ScriptInclude\ScriptIncludePacked($scriptURLGenerator);
     }

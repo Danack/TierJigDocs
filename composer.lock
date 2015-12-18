@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "335f78132e1ed8ea4b935ad41c46f8ab",
+    "hash": "0f03872dd6258d3f4f265a7a67083f0b",
     "packages": [
         {
             "name": "danack/console",
@@ -68,16 +68,16 @@
         },
         {
             "name": "danack/filefilter",
-            "version": "0.0.1",
+            "version": "0.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Danack/FileFilter.git",
-                "reference": "974977862f45296dcbba223931ad1ae5d8e1b3eb"
+                "reference": "f1061ff6f784c98aaa92b030f98e106cf7fae12d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Danack/FileFilter/zipball/974977862f45296dcbba223931ad1ae5d8e1b3eb",
-                "reference": "974977862f45296dcbba223931ad1ae5d8e1b3eb",
+                "url": "https://api.github.com/repos/Danack/FileFilter/zipball/f1061ff6f784c98aaa92b030f98e106cf7fae12d",
+                "reference": "f1061ff6f784c98aaa92b030f98e106cf7fae12d",
                 "shasum": ""
             },
             "require-dev": {
@@ -106,7 +106,7 @@
                 }
             ],
             "description": "A set of transforming file filters.",
-            "time": "2015-12-17 14:25:28"
+            "time": "2015-12-18 01:34:50"
         },
         {
             "name": "danack/jig",
