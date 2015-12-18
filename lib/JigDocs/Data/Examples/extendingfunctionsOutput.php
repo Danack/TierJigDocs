@@ -8,10 +8,7 @@ class extendingfunctionsOutput {
     {
         $content = <<< 'OUTPUT'
 
-
-
-int(5)
-
+dlroW olleH
 OUTPUT;
 
         return $content;

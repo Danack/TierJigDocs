@@ -5,7 +5,10 @@ namespace JigTest;
 use Jig\Jig;
 use Jig\Converter\JigConverter;
 use Jig\JigConfig;
+use Jig\JigDispatcher;
 use Mockery;
+use Jig\Bridge\ZendEscaperBridge;
+use Zend\Escaper\Escaper as ZendEscaper;
 
 /**
  * Class ExampleTest
@@ -21,8 +24,6 @@ class ExampleTest extends BaseTestCase
      */
     private $jig;
 
-    private $jigRender;
-    
     /** @var  \Auryn\Injector */
     private $injector;
     
@@ -52,7 +53,7 @@ class ExampleTest extends BaseTestCase
         $jigConverter = new JigConverter($jigConfig);
         $jigConverter->addDefaultPlugin('TierJig\Plugin\SitePlugin');
         
-        $this->jig = new \Jig\JigDispatcher($jigConfig, $injector, $this->jigRender);
+        $this->jig = new \Jig\JigDispatcher($jigConfig, $injector);
     }
 
 
@@ -72,6 +73,8 @@ class ExampleTest extends BaseTestCase
 //            ['extending/blocks'],
 //            ['extending/builtinFilters'],
 //            ['extending/compileBlocks'],
+            ['filters/builtin'],
+            ['extending/blocks'],
             ['extending/filters'],
             ['extending/functions'],
         ];
@@ -127,47 +130,53 @@ class ExampleTest extends BaseTestCase
     
     
     
-//    public function testCompileTimeBlock()
-//    {
-//        $templateDirectory = dirname(__DIR__)."/./fixtures/example_templates/";
-//        $compileDirectory = dirname(__DIR__)."/./../tmp/generatedTemplates/";
-//
-//        $injector = new \Auryn\Injector();
-//        
-//        $jigConfig = new JigConfig(
-//            $templateDirectory,
-//            $compileDirectory,
-//            "php.tpl",
-//            Jig::COMPILE_ALWAYS
-//        );
-//
-////Example extending_compileTimeBlocks
-//        $injector = new \Auryn\Injector();
-//        $jigConverter = new JigConverter($jigConfig);
-//        $jigRender = new JigRender($jigConfig, $jigConverter);
-//        
-//        $blockStartFn = function(JigConverter $jigConverter, $extraText) {
-//            $jigConverter->addText("This is the block start");
-//        };
-//
-//        $blockEndFn = function(JigConverter $jigConverter, $extraText, $blockText) {
-//            $jigConverter->addText("This is the block start");
-//        };
-//        
-//        $jigConverter->bindCompileBlock(
-//            'replaceCompileTime',
-//            $blockStartFn,
-//            $blockEndFn
-//        );
-//
-//        $jigRender->checkTemplateCompiled('extending/compileTimeBlocks/index');
-//        $className = $jigConfig->getFullClassname('extending/compileTimeBlocks/index');
-//        $contents = $injector->execute([$className, 'render']);
-////Example end
-//
-//        $this->saveExampleOutput('extending/compileTimeBlocks/index', $contents);
-//    }
-//    
+    public function testCompileTimeBlock()
+    {
+        $templateDirectory = dirname(__DIR__)."/./fixtures/example_templates/";
+        $compileDirectory = dirname(__DIR__)."/./../tmp/generatedTemplates/";
+
+                $jigConfig = new JigConfig(
+            $templateDirectory,
+            $compileDirectory,
+            "php.tpl",
+            Jig::COMPILE_ALWAYS
+        );
+
+//Example extending_compileTimeBlocks
+        $injector = new \Auryn\Injector();
+        $escaper = new ZendEscaperBridge(new ZendEscaper());
+        $injector->alias('Jig\Escaper', get_class($escaper));
+        $injector->share($escaper);
+
+        $jigConverter = new JigConverter($jigConfig);
+        $jigRender = new Jig($jigConfig, $jigConverter);
+
+        $blockStartFn = function(JigConverter $jigConverter, $extraText) {
+            $jigConverter->addText("This is the block start");
+            $jigConverter->addText("Extra text is $extraText");
+        };
+
+        $blockEndFn = function(JigConverter $jigConverter, $extraText) {
+            
+            
+            $jigConverter->addText("This is the block end\n");
+            $jigConverter->addText("Extra text is \"$extraText\"\n");
+        };
+        
+        $jigConverter->bindCompileBlock(
+            'replaceCompileTime',
+            $blockStartFn,
+            $blockEndFn
+        );
+
+        $jigRender->checkTemplateCompiled('extending/compileTimeBlocks/index');
+        $className = $jigConfig->getFQCNFromTemplateName('extending/compileTimeBlocks/index');
+        $contents = $injector->execute([$className, 'render']);
+//Example end
+
+        $this->saveExampleOutput('extending/compileTimeBlocks', $contents);
+    }
+
 
     private function saveExampleOutput($template, $contents)
     {

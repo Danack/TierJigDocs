@@ -26,6 +26,7 @@ $aliases = [
     'ScriptHelper\ScriptURLGenerator' => 'ScriptHelper\ScriptURLGenerator\StandardScriptURLGenerator',
     'ScriptHelper\ScriptVersion' => 'ScriptHelper\ScriptVersion\DateScriptVersion',
     'Tier\VariableMap\VariableMap' => 'Tier\VariableMap\RequestVariableMap',
+    'Jig\Escaper' => 'Jig\Bridge\ZendEscaperBridge'
 ];
 
 // Delegate the creation of types to callables.

@@ -1,12 +1,7 @@
 
-This is before the block
 
-{replaceCompileTime foo='bar'}
+{replaceCompileTime startParam='foo'}
 
-This template was compiled as %DATE_COMPILED%
+This is some template text.
 
-{/replaceCompileTime bar='foo'}
-
-
-
-This is after the block
+{/replaceCompileTime endingParam='bar'}

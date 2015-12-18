@@ -1,26 +1,28 @@
 <?php
 
-
+//Example extending_blockplugin
 namespace JigDocs\Plugin;
 
-use Jig\JigException;
 use Jig\Plugin\EmptyPlugin;
 
 class BlockPlugin extends EmptyPlugin
 {
-    public static function getFunctionList()
+    public static function getBlockRenderList()
     {
-        return [];
+        return ['lowercase'];
     }
- 
-    /**
-     * Call the function named 'functionName' with a set of parameters
-     * @param $functionName
-     * @param array $params
-     * @return mixed
-     */
-    public function callFunction($functionName, array $params)
+
+    public function callBlockRenderStart($blockName, $extraParam)
     {
-        throw new JigException("callFunction called for unknown function '$functionName'");
+        return "This is the start of the block";
+    }
+
+    public function callBlockRenderEnd($blockName, $contents)
+    {
+        $contents = strtolower($contents);
+        $contents .= "This is the end of the block.";
+
+        return $contents;
     }
 }
+//Example end

@@ -4,7 +4,15 @@
   <div class="row panel panel-default">
     <div class="col-md-12">
 
-
+      <h2>Plugin functions</h2>
+      
+      <p>
+        Plugin functions add functions to templates!
+        
+      </p>
+      
+      
+      
         {renderTemplateFile extending/functions/index}
         {/renderTemplateFile}
 

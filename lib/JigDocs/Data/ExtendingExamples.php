@@ -18,7 +18,7 @@ class ExtendingExamples extends Examples
             'functions' => 'Functions',
             'blocks' => 'Blocks',
             'filters' => 'Filters',
-            'builtinfilters' => 'Builtin filters',
+            //'builtinfilters' => 'Builtin filters',
             'compileTimeBlocks' => 'Compile blocks',
         ];
     }

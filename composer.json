@@ -11,7 +11,7 @@
     "require":{
         "danack/console": "^2.6.1",
         "danack/filefilter": "^0.0.3",
-        "danack/jig": "^0.17.0",
+        "danack/jig": "^0.18.1",
         "danack/scripthelper": "^0.0.2",
         "danack/tier": "^0.2.4",
         "intahwebz/configurator": "^0.2.9",

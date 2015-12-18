@@ -80,3 +80,18 @@ li.active {
     color: #2f2f2f;
     background-color: #2a9fd6;
 }
+
+.mainContent ul {
+   padding-left: 0px;
+}
+
+.mainContent ul li {
+    list-style-type: none;
+    padding-left: 1em;
+    padding-top: 4px;
+    padding-bottom: 1em;
+}
+
+.mainContent ul li .keyword {
+    color: #ffffff;
+}

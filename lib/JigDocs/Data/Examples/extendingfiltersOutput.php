@@ -8,7 +8,6 @@ class extendingfiltersOutput {
     {
         $content = <<< 'OUTPUT'
 
-
 Some moderately long string
 Somemoderatelylongstring
 OUTPUT;

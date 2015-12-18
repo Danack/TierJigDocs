@@ -51,7 +51,16 @@ function jigRoutesFunction(\FastRoute\RouteCollector $r)
     $r->addRoute('GET', '/debug', ['JigDocs\Controller\Index', 'debug']);
     $r->addRoute('GET', '/syntax', ['JigDocs\Controller\Syntax', 'indexPage']);
     $r->addRoute('GET', '/syntax/{example:\w+}', ['JigDocs\Controller\Syntax', 'examplePage']);
+    
+    
     $r->addRoute('GET', '/extending', ['JigDocs\Controller\Extending', 'indexPage']);
+    $r->addRoute('GET', '/extending/plugins', ['JigDocs\Controller\Extending', 'plugins']);
+    $r->addRoute('GET', '/extending/commpileTimeBlocks', ['JigDocs\Controller\Extending', 'commpileTimeBlocks']);
+
+
+    
+    
+    $r->addRoute('GET', '/filters', ['JigDocs\Controller\Index', 'filters']);
     $r->addRoute('GET', '/extending/{example:\w+}', ['JigDocs\Controller\Extending', 'examplePage']);
     $r->addRoute('GET', '/onePage', ['JigDocs\Controller\Index', 'onePageExample']);
     $r->addRoute('GET', '/gettingStarted', ['JigDocs\Controller\Index', 'gettingStarted']);

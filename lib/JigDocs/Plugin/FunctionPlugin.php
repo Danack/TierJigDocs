@@ -11,18 +11,22 @@ class FunctionPlugin extends EmptyPlugin
 {
     public static function getFunctionList()
     {
-        return ['var_dump'];
+        return ['reverse'];
     }
- 
-    /**
-     * Call the function named 'functionName' with a set of parameters
-     * @param $functionName
-     * @param array $params
-     * @return mixed
-     */
+
     public function callFunction($functionName, array $params)
     {
-        throw new JigException("callFunction called for unknown function '$functionName'");
+        if (!in_array($functionName, self::getFunctionList())) {
+            throw new JigException("Unknown function $functionName");
+        }
+
+        return call_user_func_array([$this, 'reverseString'], $params);
     }
+
+    public function reverseString($string1, $string2)
+    {
+        return strrev($string2)." ".strrev($string1);
+    }
+    
 }
 //Example end

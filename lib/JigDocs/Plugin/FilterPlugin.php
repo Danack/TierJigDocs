@@ -17,11 +17,13 @@ class FilterPlugin extends EmptyPlugin
     {
         return ['nospaces'];
     }
-    
+
     /**
      * Call the filter named 'filterName' for the string.
      * @param string $filterName The name of the filter.
-     * @param string $string
+     * @param string $inputString
+     * @throws JigException
+     * @internal param string $string
      * @return mixed
      */
     public function callFilter($filterName, $inputString)

@@ -1,9 +1,6 @@
-
-
-{spoilerBlock}
-
+{plugin type='JigDocs\Plugin\BlockPlugin'}
+{lowercase}
 <p>
-    All the content inside this block is passed to the end function of the spoilerBlock.
+    All the content inside this block is passed to the BlockPlugin::callBlockRenderEnd function.
 </p>
-
-{/spoilerBlock}
+{/lowercase}

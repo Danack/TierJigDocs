@@ -63,6 +63,7 @@ class SitePlugin implements \Jig\Plugin
     /**
      * @param $blockName
      * @param string $extraParam
+     * @throws JigException
      * @return mixed
      */
     public function callBlockRenderStart($blockName, $extraParam)
@@ -81,6 +82,7 @@ class SitePlugin implements \Jig\Plugin
     /**
      * @param string $blockName
      * @param string $contents
+     * @throws JigException
      * @return mixed
      */
     public function callBlockRenderEnd($blockName, $contents)
@@ -123,6 +125,7 @@ class SitePlugin implements \Jig\Plugin
     /**
      * @param string $filterName The name of the filter.
      * @param string $string
+     * @throws JigException
      * @return mixed
      */
     public function callFilter($filterName, $string)
@@ -138,5 +141,11 @@ class SitePlugin implements \Jig\Plugin
     {
         return str_replace(' ', '', $inputString);
     }
+    
+    function test($item)
+    {
+        return $item;
+    }
+    
 //Example_end
 }
