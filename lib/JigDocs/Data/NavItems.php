@@ -11,12 +11,13 @@ class NavItems implements \IteratorAggregate
         SyntaxExamples $syntaxExamples, 
         ExtendingExamples $extendingExamples
     ) { 
-        $this->items[] = new NavItem('/', 'Index');
+        $this->items[] = new NavItem('/', 'Introduction');
         $this->items[] = new NavItem('/gettingStarted', 'Getting started');
         $this->items[] = new NavItem('/syntax', 'Syntax', $syntaxExamples);
         $this->items[] = new NavItem('/filters', 'Filters');
         $this->items[] = new NavItem('/extending', 'Extending Jig', $extendingExamples);
-        $this->items[] = new NavItem('/testingTemplates', 'Unit testing templates');
+        $this->items[] = new NavItem('/testingTemplates', 'Unit testing');
+        $this->items[] = new NavItem('/debugging', 'Debugging');
         $this->items[] = new NavItem('/onePage', 'One page example');
     }
 

@@ -10,7 +10,7 @@ class syntaxcommentsOutput {
 
 
     
-<!-- This is a HMTL comment. -->
+<!-- This is a HTML comment. -->
 
 OUTPUT;
 

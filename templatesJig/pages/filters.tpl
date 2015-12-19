@@ -9,7 +9,7 @@
 
       <p>
         
-        
+        Filters in Jig are simple functions that can change how the characters to be output to 
         
       </p>
       
@@ -18,8 +18,9 @@
       <h3>
         Builtin filters
       </h3>
-
-      The following filters are available in Jig by default.
+      <p>
+      The following filters are available in Jig by default:
+      </p>
       
       <ul>
         <li><span class='keyword'>html</span> - Some characters in HTML are reserved characters which have special meaning. The html filter replaces these reserved characters with the equivalent HTML entity string. For example the 'less than' sign is replaced with '{"&lt;"}'. </li>
@@ -38,12 +39,10 @@
         <!-- <li><span class='keyword'>nooutput</span> - prevents all output. This used internally by Jig, and may be useful occassionally for debuggin.</li> -->
 
         <li><span class='keyword'>nofilter</span> - Do not filter the output. This should be used when calling a function that will return HTML, that i</li>
-
       </ul>
-      
-      
+
       <p>
-        Additional filters can be added to Jig through using plugins. Please see the section on<a href='/extending/filters'>"Extending Jig - filters"</a> for details.
+        Additional filters can be added to Jig by using plugins. Please see the section on<a href='/extending/filters'>"Extending Jig - filters"</a> for details.
 
       </p>
 

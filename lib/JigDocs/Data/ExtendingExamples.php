@@ -15,9 +15,10 @@ class ExtendingExamples extends Examples
     public static function getList()
     {
         return [
-            'functions' => 'Functions',
-            'blocks' => 'Blocks',
-            'filters' => 'Filters',
+            'plugins' => 'Plugin overview',
+            'functions' => 'Plugin functions',
+            'blocks' => 'Plugin blocks',
+            'filters' => 'Plugin filters',
             //'builtinfilters' => 'Builtin filters',
             'compileTimeBlocks' => 'Compile blocks',
         ];

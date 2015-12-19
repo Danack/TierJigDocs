@@ -3,7 +3,7 @@
 {block name='content'}
   <div class="row panel panel-default">
     <div class="col-md-12">
-        <h2>Foreach syntax</h2>
+        <h2>Foreach loops</h2>
 
         {renderTemplateFile syntax/foreachExample/index}
         {/renderTemplateFile}

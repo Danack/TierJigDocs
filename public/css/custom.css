@@ -81,17 +81,31 @@ li.active {
     background-color: #2a9fd6;
 }
 
-.mainContent ul {
+.mainContent ul.doclist {
    padding-left: 0px;
 }
 
-.mainContent ul li {
+.mainContent ul.doclist li {
     list-style-type: none;
-    padding-left: 1em;
+    padding-left: 0px;
     padding-top: 4px;
     padding-bottom: 1em;
 }
 
 .mainContent ul li .keyword {
     color: #ffffff;
+    padding-right: 1em;
 }
+
+/* .mainContent ul li .keyword::after {
+    content: "<br/>";
+    content:"\A"; white-space:pre;
+} */
+
+
+.mainContent ul.functionList li {
+    
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+

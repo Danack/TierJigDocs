@@ -7,12 +7,9 @@ use Room11\HTTP\Request;
 use Room11\HTTP\Response;
 use Room11\HTTP\Body\TextBody;
 use Tier\InjectionParams;
-use Tier\Tier;
 use Site\Config;
 use ScriptHelper\ScriptVersion;
-use Predis\Client as RedisClient;
 use FastRoute\Dispatcher;
-use Room11\HTTP\HeadersSet;
 use Tier\Executable;
 
 /**
@@ -47,24 +44,22 @@ function jigRoutesFunction(\FastRoute\RouteCollector $r)
 {
     $r->addRoute('GET', "/css/{commaSeparatedFilenames}", ['ScriptHelper\Controller\ScriptServer', 'serveCSS']);
     $r->addRoute('GET', '/js/{commaSeparatedFilenames}', ['ScriptHelper\Controller\ScriptServer', 'serveJavascript']);
-    $r->addRoute('GET', '/', ['JigDocs\Controller\Index', 'renderIndexPage']);
+    $r->addRoute('GET', '/', ['JigDocs\Controller\Index', 'renderIntroductionPage']);
     $r->addRoute('GET', '/debug', ['JigDocs\Controller\Index', 'debug']);
     $r->addRoute('GET', '/syntax', ['JigDocs\Controller\Syntax', 'indexPage']);
     $r->addRoute('GET', '/syntax/{example:\w+}', ['JigDocs\Controller\Syntax', 'examplePage']);
-    
-    
+
     $r->addRoute('GET', '/extending', ['JigDocs\Controller\Extending', 'indexPage']);
     $r->addRoute('GET', '/extending/plugins', ['JigDocs\Controller\Extending', 'plugins']);
     $r->addRoute('GET', '/extending/commpileTimeBlocks', ['JigDocs\Controller\Extending', 'commpileTimeBlocks']);
-
-
-    
-    
+    $r->addRoute('GET', '/debugging', ['JigDocs\Controller\Index', 'debugging']);    
     $r->addRoute('GET', '/filters', ['JigDocs\Controller\Index', 'filters']);
     $r->addRoute('GET', '/extending/{example:\w+}', ['JigDocs\Controller\Extending', 'examplePage']);
     $r->addRoute('GET', '/onePage', ['JigDocs\Controller\Index', 'onePageExample']);
     $r->addRoute('GET', '/gettingStarted', ['JigDocs\Controller\Index', 'gettingStarted']);
 
+    
+    
     $r->addRoute('GET', '/testingTemplates', ['JigDocs\Controller\Index', 'testingTemplates']);
     $r->addRoute('GET', '/userSetting', ['JigDocs\Controller\UserSetting', 'updateSetting']);
     $r->addRoute('POST', '/userSetting', ['JigDocs\Controller\UserSetting', 'updateSetting']);
@@ -167,7 +162,6 @@ function renderTemplates($templates)
     $output = '';
     foreach ($templates as $template) {
         $templatePath = $dirPath.'/'.$template.'.php.tpl';
-        //$output .= "Template is: $template<br/>";
         $output .= "<pre>";
         $string = file_get_contents($templatePath);
         $string = htmlentities($string, ENT_DISALLOWED | ENT_HTML401 | ENT_NOQUOTES, 'UTF-8');
@@ -244,7 +238,6 @@ function createScriptInclude(
     \ScriptHelper\ScriptURLGenerator $scriptURLGenerator
 ) {
     $packScript = $config->getKey(Config::SCRIPT_PACKING);
-    $packScript = true;
     if ($packScript) {
         return new \ScriptHelper\ScriptInclude\ScriptIncludePacked($scriptURLGenerator);
     }

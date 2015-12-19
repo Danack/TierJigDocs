@@ -4,10 +4,7 @@
   <div class="row panel panel-default">
     <div class="col-md-12">
 
-
-        {inject name='examples' type='TierJig\Data\SyntaxExamples'}
-
-
+      <h2>Extending other templates</h2>
 
         {renderTemplateFile syntax/extending/index}
         {/renderTemplateFile}

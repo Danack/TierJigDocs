@@ -7,7 +7,7 @@
         <h2>The one page example</h2>
 
         <p>
-          This example shows all of the features of Jig on a single page.
+          This example <strike>shows</strike> will show all of the features of Jig on a single page.
 
         </p>
 
