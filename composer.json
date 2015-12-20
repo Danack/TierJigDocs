@@ -13,7 +13,7 @@
         "danack/filefilter": "^0.0.3",
         "danack/jig": "^0.20.0",
         "danack/scripthelper": "^0.0.2",
-        "danack/tier": "^0.2.4",
+        "danack/tier": "^0.2.6",
         "intahwebz/configurator": "^0.2.9",
         "leafo/lessphp": "0.4.0",
         "leafo/scssphp": "0.1.1",
