@@ -8,13 +8,9 @@
       </h2>
 
       <p>
-        
         Filters in Jig are simple functions that can change how the characters to be output to 
-        
       </p>
-      
-      
-      
+
       <h3>
         Builtin filters
       </h3>
@@ -25,7 +21,7 @@
       <ul>
         <li><span class='keyword'>html</span> - Some characters in HTML are reserved characters which have special meaning. The html filter replaces these reserved characters with the equivalent HTML entity string. For example the 'less than' sign is replaced with '{"&lt;"}'. </li>
 
-        <li><span class='keyword'>html_attr</span> - 
+        <li><span class='keyword'>attr</span> - 
         Escapes the output to be safe to use inside a HTML Attribute.
         </li>
 

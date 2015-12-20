@@ -12,7 +12,7 @@ class Syntax
         $injectionParams = InjectionParams::fromParams([]);
         $injectionParams->alias('TierJig\Data\Examples', '\TierJig\Data\SyntaxExamples');
 
-        return $tierJig->createTemplateTier('pages/syntax/index', $injectionParams);
+        return $tierJig->createJigExecutable('pages/syntax/index', $injectionParams);
     }
 
     public function examplePage(TierJig $tierJig, $example)
@@ -20,6 +20,6 @@ class Syntax
         $injectionParams = InjectionParams::fromParams([]);
         $injectionParams->alias('TierJig\Data\Examples', '\TierJig\Data\SyntaxExamples');
 
-        return $tierJig->createTemplateTier("pages/syntax/$example", $injectionParams);
+        return $tierJig->createJigExecutable("pages/syntax/$example", $injectionParams);
     }
 }

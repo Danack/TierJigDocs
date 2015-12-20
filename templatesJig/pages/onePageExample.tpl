@@ -11,6 +11,22 @@
 
         </p>
 
+        {renderTemplateFile onepage/example/parent}
+        {/renderTemplateFile}
+      
+        {renderTemplateFile onepage/example/index}
+        {/renderTemplateFile}
+      
+        {renderTemplateFile onepage/example/an_include}
+        {/renderTemplateFile}
+
+        {renderOutputFile onepage/example}
+        {/renderOutputFile}
+
+        <p>
+          {renderExampleCode example='onepage_plugin'}
+          {/renderExampleCode}
+        </p>
     </div>
   </div>
 {/block}

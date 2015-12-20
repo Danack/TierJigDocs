@@ -39,7 +39,12 @@ else {
 }
 
 // Create the first Tier that needs to be run.
-$executable = new Executable('routeRequest', null, null, 'Room11\HTTP\Body');
+$executable = new Executable(
+    ['Tier\JigBridge\Router', 'routeRequest'], 
+    null,
+    null,
+    'Room11\HTTP\Body' //skip if this has already been produced
+);
 
 // Create the Tier application
 $app = new TierHTTPApp($injectionParams);

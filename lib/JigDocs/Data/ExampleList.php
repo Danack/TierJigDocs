@@ -2,7 +2,7 @@
 
 namespace JigDocs\Data;
 
-class ExampleList
+class ExampleListads
 {
     public static function getList()
     {

@@ -4,10 +4,10 @@
 namespace JigDocs\Data;
 
 
-class Examples
+interface Examples
 {
     /**
-     * @return string
+     * @return array
      */
-    public function renderList() {}
+    public function getList();
 }

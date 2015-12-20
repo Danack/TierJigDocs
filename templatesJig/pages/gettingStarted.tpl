@@ -10,6 +10,21 @@
       <p>
         Words about how to get started go here.
       </p>
+      
+
+        <p>
+          {renderExampleCode example='gettingStarted/basic'}
+          {/renderExampleCode}
+        </p>
+      
+      
+        {renderTemplateFile gettingStarted/basic}
+        {/renderTemplateFile}
+
+        {renderOutputFile gettingStarted/basic}
+        {/renderOutputFile}
+
+      
     </div>
   </div>
 {/block}

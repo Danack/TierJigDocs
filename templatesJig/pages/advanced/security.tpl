@@ -7,12 +7,19 @@
         Security
       </h2>
 
+      
+      <h4>Use a separate Dependency Injection Container</h4>
+      
       <p>
-        
-        whitelisting injections. 
-        
+
       </p>
       
+      <h4>Whitelisting + blacklisting</h4>
+      
+      <p>
+        
+        
+      </p>
       
     </div>
   </div>

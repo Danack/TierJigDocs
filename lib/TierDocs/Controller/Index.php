@@ -12,46 +12,46 @@ class Index
 {
     public function renderIndexPage(TierJig $tierJig)
     {
-        return $tierJig->createTemplateTier('pages/index');
+        return $tierJig->createJigExecutable('pages/index');
     }
     
     
     public function renderExecutingPage(TierJig $tierJig)
     {
-        return $tierJig->createTemplateTier('pages/executing');
+        return $tierJig->createJigExecutable('pages/executing');
     }
 
     public function renderDicPage(TierJig $tierJig)
     {
-        return $tierJig->createTemplateTier('pages/dic');
+        return $tierJig->createJigExecutable('pages/dic');
     }
     
     
     public function renderExecutionControlPage(TierJig $tierJig)
     {
-        return $tierJig->createTemplateTier('pages/executionControl');
+        return $tierJig->createJigExecutable('pages/executionControl');
     }
     
 
     
     public function renderExamplesPage(TierJig $tierJig)
     {
-        return $tierJig->createTemplateTier('pages/examples/index');
+        return $tierJig->createJigExecutable('pages/examples/index');
     }
     
     public function renderCachingPage(TierJig $tierJig)
     {
-        return $tierJig->createTemplateTier('pages/examples/cachingTier');
+        return $tierJig->createJigExecutable('pages/examples/cachingTier');
     }
     
     public function renderConfigurationPage(TierJig $tierJig)
     {
-        return $tierJig->createTemplateTier('pages/examples/configuration');
+        return $tierJig->createJigExecutable('pages/examples/configuration');
     }
     
     public function renderContextsPage(TierJig $tierJig)
     {
-        return $tierJig->createTemplateTier('pages/examples/contexts');
+        return $tierJig->createJigExecutable('pages/examples/contexts');
     }
 
     public function debug(TierJig $tierJig, VariableMap $variableMap, Session $session)
@@ -69,6 +69,6 @@ class Index
 
         $session->save();
 
-        return $tierJig->createTemplateTier('pages/debug');
+        return $tierJig->createJigExecutable('pages/debug');
     }
 }

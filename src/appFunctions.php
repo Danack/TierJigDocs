@@ -2,7 +2,6 @@
 
 use Jig\JigConfig;
 use Jig\Jig;
-use Jig\Converter\JigConverter;
 use Room11\HTTP\Request;
 use Room11\HTTP\Response;
 use Room11\HTTP\Body\TextBody;
@@ -11,6 +10,7 @@ use Site\Config;
 use ScriptHelper\ScriptVersion;
 use FastRoute\Dispatcher;
 use Tier\Executable;
+use Tier\JigBridge\TierJig;
 
 /**
  * @return JigConfig
@@ -20,8 +20,8 @@ function createJigConfigForJigDocs(Config $config)
     $jigConfig = new JigConfig(
         __DIR__."/../templatesJig/",
         __DIR__."/../var/compilejig/",
-        'tpl',
-        $config->getKey(Config::JIG_COMPILE_CHECK)
+        $config->getKey(Config::JIG_COMPILE_CHECK),
+        'tpl'
     );
 
     return $jigConfig;
@@ -33,8 +33,8 @@ function createJigConfigForTierDocs(Config $config)
     $jigConfig = new JigConfig(
         __DIR__."/../templatesTier/",
         __DIR__."/../var/compiletier/",
-        'tpl',
-        $config->getKey(Config::JIG_COMPILE_CHECK)
+        $config->getKey(Config::JIG_COMPILE_CHECK),
+        'tpl'
     );
 
     return $jigConfig;
@@ -44,26 +44,7 @@ function jigRoutesFunction(\FastRoute\RouteCollector $r)
 {
     $r->addRoute('GET', "/css/{commaSeparatedFilenames}", ['ScriptHelper\Controller\ScriptServer', 'serveCSS']);
     $r->addRoute('GET', '/js/{commaSeparatedFilenames}', ['ScriptHelper\Controller\ScriptServer', 'serveJavascript']);
-    $r->addRoute('GET', '/', ['JigDocs\Controller\Index', 'renderIntroductionPage']);
     $r->addRoute('GET', '/debug', ['JigDocs\Controller\Index', 'debug']);
-    $r->addRoute('GET', '/syntax', ['JigDocs\Controller\Syntax', 'indexPage']);
-    $r->addRoute('GET', '/syntax/{example:\w+}', ['JigDocs\Controller\Syntax', 'examplePage']);
-
-    $r->addRoute('GET', '/extending', ['JigDocs\Controller\Extending', 'indexPage']);
-    $r->addRoute('GET', '/extending/plugins', ['JigDocs\Controller\Extending', 'plugins']);
-    $r->addRoute('GET', '/extending/commpileTimeBlocks', ['JigDocs\Controller\Extending', 'commpileTimeBlocks']);
-    $r->addRoute('GET', '/debugging', ['JigDocs\Controller\Index', 'debugging']);    
-    $r->addRoute('GET', '/filters', ['JigDocs\Controller\Index', 'filters']);
-    $r->addRoute('GET', '/extending/{example:\w+}', ['JigDocs\Controller\Extending', 'examplePage']);
-    $r->addRoute('GET', '/onePage', ['JigDocs\Controller\Index', 'onePageExample']);
-    $r->addRoute('GET', '/gettingStarted', ['JigDocs\Controller\Index', 'gettingStarted']);
-
-    
-    
-    $r->addRoute('GET', '/testingTemplates', ['JigDocs\Controller\Index', 'testingTemplates']);
-    $r->addRoute('GET', '/userSetting', ['JigDocs\Controller\UserSetting', 'updateSetting']);
-    $r->addRoute('POST', '/userSetting', ['JigDocs\Controller\UserSetting', 'updateSetting']);
-    $r->addRoute('POST', '/deploy/githook', ['JigDocs\Controller\GitWebHook', 'event']);
 }
 
 function tierRoutesFunction(\FastRoute\RouteCollector $r)
@@ -80,54 +61,6 @@ function tierRoutesFunction(\FastRoute\RouteCollector $r)
     $r->addRoute('GET', '/examples/contexts', ['TierDocs\Controller\Index', 'renderContextsPage']);
 }
 
-function serve404ErrorPage(Response $response)
-{
-    $response->setStatus(404);
-
-    return new TextBody('Route not found.');
-}
-
-function serve405ErrorPage(Response $response)
-{
-    $response->setStatus(404);
-
-    return new TextBody('Method not allowed for route.');
-}
-
-function routeRequest(Dispatcher $dispatcher, Request $request)
-{
-    $httpMethod = 'GET';
-    $uri = '/';
-
-    if (array_key_exists('REQUEST_URI', $_SERVER)) {
-        $uri = $_SERVER['REQUEST_URI'];
-    }
-
-    // TODO - actually use $request
-    $path = $uri;
-    $queryPosition = strpos($path, '?');
-    if ($queryPosition !== false) {
-        $path = substr($path, 0, $queryPosition);
-    }
-
-    $routeInfo = $dispatcher->dispatch($httpMethod, $path);
-
-    $dispatcherResult = $routeInfo[0];
-    
-    if ($dispatcherResult == \FastRoute\Dispatcher::FOUND) {
-        $handler = $routeInfo[1];
-        $vars = $routeInfo[2];
-        $params = InjectionParams::fromParams($vars);
-
-        return new Executable($handler, $params, null);
-    }
-    else if ($dispatcherResult == \FastRoute\Dispatcher::NOT_FOUND) {
-        return new Executable('serve404ErrorPage');
-    }
-
-    //TODO - need to embed allowedMethods....theoretically.
-    return new Executable('serve405ErrorPage');
-}
 
 
 function getExampleClassnameFromTemplate($exampleName)
@@ -246,19 +179,8 @@ function createScriptInclude(
     }
 }
 
-function createRedisClient()
+
+function createUserInfo()
 {
-    $redisParameters = array(
-        "scheme" => "tcp",
-        "host" => '127.0.0.1',
-        "port" => 6379
-    );
-
-    $redisOptions = array(
-        'profile' => '2.6'
-    );
-
-    $redisClient = new RedisClient($redisParameters, $redisOptions);
-
-    return $redisClient;
+    return new \JigDocs\Model\UserInfo("Danack", "MrDanack");
 }

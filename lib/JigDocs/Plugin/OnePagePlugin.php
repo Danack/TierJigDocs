@@ -1,12 +1,12 @@
 <?php
 
-
+//Example onepage_plugin
 namespace JigDocs\Plugin;
 
 use Jig\Plugin;
 use Jig\JigException;
 
-class ExamplePlugin implements Plugin
+class OnePagePlugin implements Plugin
 {
     /**
      * Return the list of blocks provided by this plugin.
@@ -14,7 +14,7 @@ class ExamplePlugin implements Plugin
      */
     public static function getBlockRenderList()
     {
-        return [];
+        return ['onePageBlock'];
     }
 
     /**
@@ -23,7 +23,7 @@ class ExamplePlugin implements Plugin
      */
     public static function getFilterList()
     {
-        return [];
+        return ['onePageFilter'];
     }
 
     /**
@@ -32,7 +32,7 @@ class ExamplePlugin implements Plugin
      */
     public static function getFunctionList()
     {
-        return ['pluginFunction'];
+        return ['onePageFunction'];
     }
     
     /**
@@ -43,12 +43,18 @@ class ExamplePlugin implements Plugin
      */
     public function callFunction($functionName, array $params)
     {
-        if ($functionName === 'pluginFunction') {
-            return call_user_func_array([$this, 'exampleFunction'], $params);
+        if ($functionName !== 'onePageFunction') {
+            throw new JigException("callFunction called for unknown function '$functionName'");
         }
 
-        throw new JigException("callFunction called for unknown function '$functionName'");
+        return call_user_func_array([$this, 'onePageFunction'], $params);
     }
+    
+    private function onePageFunction($string)
+    {
+        return strrev($string);
+    }
+    
 
     /**
      * Call the filter named 'filterName' for the string.
@@ -58,7 +64,11 @@ class ExamplePlugin implements Plugin
      */
     public function callFilter($filterName, $string)
     {
-        throw new JigException("callFilter called for unknown function '$filterName'");
+        if ($filterName !== 'onePageFilter') {
+            throw new JigException("callFilter called for unknown function '$filterName'");
+        }
+
+        return strtolower($string);
     }
 
     /**
@@ -70,7 +80,10 @@ class ExamplePlugin implements Plugin
      */
     public function callBlockRenderStart($blockName, $extraParam)
     {
-        throw new JigException("callBlockRenderStart called for unknown block '$blockName'");
+        if ($blockName !== 'onePageBlock') {
+            throw new JigException("callBlockRenderStart called for unknown block '$blockName'");
+        }
+        return "This is the start of the block. extra text is '$extraParam'";
     }
 
     /**
@@ -82,11 +95,14 @@ class ExamplePlugin implements Plugin
      */
     public function callBlockRenderEnd($blockName, $contents)
     {
-        throw new JigException("callBlockRenderEnd called for unknown block '$blockName'");
-    }
-    
-    private function exampleFunction($input)
-    {
-        return strtoupper($input);
+        if ($blockName !== 'onePageBlock') {
+             throw new JigException("callBlockRenderEnd called for unknown block '$blockName'");
+        }
+        $lines = explode("\n", $contents);
+        $reversedLines = array_reverse($lines);
+
+        return implode("\n", $reversedLines);
     }
 }
+
+//Example end

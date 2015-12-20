@@ -37,7 +37,7 @@ pre.code {
 .php_T_PROTECTED,
 .php_T_REQUIRE,
 .php_T_REQUIRE_ONCE {
-  color: #000080;
+  color: #8791f1;
   background-color: inherit;
 }
 /* No code uses this color
@@ -48,11 +48,11 @@ pre.code {
 */
 .php_T_DNUMBER,
 .php_T_LNUMBER {
-  color: #0000ff;
+  color: #8791f1;
   background-color: inherit;
 }
 .php_T_CONSTANT_ENCAPSED_STRING {
-  color: #008000;
+  color: #9ae4a2;
   background-color: inherit;
 }
 /* No code uses this color
@@ -145,7 +145,7 @@ pre.code {
 }
 */
 .php_T_VARIABLE {
-  color: #660000;
+  color: #e28886;
   background-color: inherit;
 }
 /* No code uses this color

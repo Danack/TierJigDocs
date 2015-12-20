@@ -21,7 +21,7 @@ class TierExampleTest extends BaseTestCase
     /**
      * @var \Jig\JigDispatcher
      */
-    private $jig;
+    private $jigDispatcher;
 
     private $jigRender;
     
@@ -34,27 +34,9 @@ class TierExampleTest extends BaseTestCase
     public function setUp()
     {
         parent::setUp();
-
-        $templateDirectory = dirname(__DIR__)."/./fixtures/example_templates/";
-        $compileDirectory = dirname(__DIR__)."/./../tmp/generatedTemplates/";
-
-        $jigConfig = new JigConfig(
-            $templateDirectory,
-            $compileDirectory,
-            "php.tpl",
-            Jig::COMPILE_ALWAYS
-        );
-
-        $injector = new \Auryn\Injector();
-        $injector->share($jigConfig);
-        $injector->share($injector);
-        
+        $injector = createTestInjector();
         $this->injector = $injector;
-
-        $jigConverter = new JigConverter($jigConfig);
-        $jigConverter->addDefaultPlugin('TierJig\Plugin\SitePlugin');
-        
-        $this->jig = new \Jig\JigDispatcher($jigConfig, $injector, $this->jigRender);
+        $this->jigDispatcher = $this->injector->make('Jig\JigDispatcher');
     }
 
 
@@ -93,9 +75,6 @@ class TierExampleTest extends BaseTestCase
 //Example end
         $this->saveExampleOutput('injector/sharing', $contents);
     }
-
-    
-    
 
     private function saveExampleOutput($template, $contents)
     {

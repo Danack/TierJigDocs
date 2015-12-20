@@ -2,3 +2,4 @@ autogen
 var
 test.txt
 vendor_oops
+test/tmp

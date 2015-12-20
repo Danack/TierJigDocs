@@ -48,9 +48,21 @@ class NavItem
             return '';
         }
         $output = "<li class='subItem'>";
-        $output .= $this->examples->renderList();
+
+        $output .= "<ul class='nav'>";
+        foreach ($this->examples->getList() as $example => $description) {
+            $output .= "<li>";
+            $output .= sprintf(
+                "<a href='%s/%s'>%s</a>",
+                $this->path,
+                $example,
+                $description
+            );
+            $output .= "</li>";
+        }
+        $output .= "</ul>";
         $output .= "</li>";
-        
+
         return $output;
     }
 }

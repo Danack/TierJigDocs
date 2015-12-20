@@ -17,6 +17,7 @@
     
     {$scriptInclude->addCSSFile("bootstrap_cyborg")}
     {$scriptInclude->addCSSFile("bootswatch_cyborg")}
+    {$scriptInclude->addCSSFile("code_highlight_danack")}
     {$scriptInclude->addCSSFile("custom")}
 
     {$scriptInclude->renderCSSLinks() | nofilter}

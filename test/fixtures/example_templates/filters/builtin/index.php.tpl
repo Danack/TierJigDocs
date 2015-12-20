@@ -1,6 +1,6 @@
 {$testString="This is a test '<' string. "}
 {$testString | html}
-{$testString | html_attr}
+{$testString | attr}
 {$testString | js}
 {$testString | css}
 {$testString | url}

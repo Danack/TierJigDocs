@@ -1,4 +1,4 @@
-{plugin type='\JigDocs\Plugin\ExamplePlugin'}
+{plugin type='JigDocs\Plugin\ExamplePlugin'}
 
 
 {$foo = "Hello world"}

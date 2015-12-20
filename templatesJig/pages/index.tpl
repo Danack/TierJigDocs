@@ -57,7 +57,7 @@
           <span class="keyword">
            Easy to debug
           </span>
-          When the templates are compiled to PHP, the compiled name is based of the template filename. This means that it is trivial to know where to find the compiled code. For example this template `pages/introduction.tpl` is compiled to the PHP file `Jig\CompiledTemplate\pages\introductionJig`. Additionally 
+          When the templates are compiled to PHP, the compiled name is based of the template filename. This means that it is trivial to know where to find the compiled code. For example this template `pages/introduction.tpl` is compiled to the PHP file `Jig\CompiledTemplate\pages\introductionJig`.
         </li>
       </ul>
 
@@ -65,8 +65,7 @@
       <h3>What Jig is not</h3>
 
       <p>
-        Jig was designed to be simple. Because of this choice, several features that are present in other template
-        libraries are deliberately not present in Jig.
+        Jig was designed to be simple. Because of this choice, several features that are present in other template libraries are deliberately not present in Jig.
       </p>
 
       <ul>

@@ -31,9 +31,9 @@ $aliases = [
 
 // Delegate the creation of types to callables.
 $delegates = [
-    'Predis\Client' => 'createRedisClient',
     'Room11\Caching\LastModifiedStrategy' => 'createCaching',
     'ScriptHelper\ScriptInclude' => 'createScriptInclude',
+    'JigDocs\Model\UserInfo' => 'createUserInfo'
 ];
 
 // If necessary, define some params that can be injected purely by name.

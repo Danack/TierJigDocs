@@ -14,8 +14,6 @@
           <li>Any code that isn't an assignment will be printed to the output.</li>
           <li>All output is sent through an <a href="/filters">output filter</a> to escape HTML entities by default.</li>
         </ul>
-      
-      
 
         <h3>Syntax list</h3>
         {inject name='examples' type='JigDocs\Data\SyntaxExamples'}

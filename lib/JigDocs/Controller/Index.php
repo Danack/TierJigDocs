@@ -6,43 +6,9 @@ use Tier\JigBridge\TierJig;
 
 class Index
 {
-    public function renderIntroductionPage(TierJig $tierJig)
-    {
-        return $tierJig->createTemplateTier('pages/introduction');
-    }
-    
+    //Keep this one to make debugging easy. 
     public function debug(TierJig $tierJig) 
     {
-        return $tierJig->createTemplateTier('pages/debug');
-    }
-
-    public function debugging(TierJig $tierJig)
-    {
-        return $tierJig->createTemplateTier('pages/debugging');
-    }
-
-    public function gettingStarted(TierJig $tierJig)
-    {
-        return $tierJig->createTemplateTier('pages/gettingStarted');
-    }
-    
-    public function filters(TierJig $tierJig)
-    {
-        return $tierJig->createTemplateTier('pages/filters');
-    }
-
-    public function renderPluginsPage(TierJig $tierJig)
-    {
-        return $tierJig->createTemplateTier('pages/plugins');
-    }
-
-    public function onePageExample(TierJig $tierJig)
-    {
-        return $tierJig->createTemplateTier('pages/onePageExample');
-    }
-
-    public function testingTemplates(TierJig $tierJig)
-    {
-        return $tierJig->createTemplateTier('pages/unitTesting');
+        return $tierJig->createJigExecutable('pages/debug');
     }
 }

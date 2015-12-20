@@ -22,7 +22,7 @@ class ExampleTest extends BaseTestCase
     /**
      * @var \Jig\JigDispatcher
      */
-    private $jig;
+    private $jigDispatcher;
 
     /** @var  \Auryn\Injector */
     private $injector;
@@ -34,26 +34,9 @@ class ExampleTest extends BaseTestCase
     {
         parent::setUp();
 
-        $templateDirectory = dirname(__DIR__)."/./fixtures/example_templates/";
-        $compileDirectory = dirname(__DIR__)."/./../tmp/generatedTemplates/";
-
-        $jigConfig = new JigConfig(
-            $templateDirectory,
-            $compileDirectory,
-            "php.tpl",
-            Jig::COMPILE_ALWAYS
-        );
-
-        $injector = new \Auryn\Injector();
-        $injector->share($jigConfig);
-        $injector->share($injector);
-        
-        $this->injector = $injector;
-
-        $jigConverter = new JigConverter($jigConfig);
-        $jigConverter->addDefaultPlugin('TierJig\Plugin\SitePlugin');
-        
-        $this->jig = new \Jig\JigDispatcher($jigConfig, $injector);
+        $injector = createTestInjector();;        
+        $this->injector = $injector;        
+        $this->jigDispatcher = $this->injector->make('Jig\JigDispatcher');
     }
 
 
@@ -77,6 +60,8 @@ class ExampleTest extends BaseTestCase
             ['extending/blocks'],
             ['extending/filters'],
             ['extending/functions'],
+            
+            ['onepage/example'],
         ];
     }
     /**
@@ -86,7 +71,7 @@ class ExampleTest extends BaseTestCase
      */
     public function testIncludeExample($template)
     {
-        $contents = $this->jig->renderTemplateFile($template.'/index');
+        $contents = $this->jigDispatcher->renderTemplateFile($template.'/index');
         $this->saveExampleOutput($template, $contents);
     }
 
@@ -95,7 +80,7 @@ class ExampleTest extends BaseTestCase
      */
     public function testExtendingFilter()
     {
-        $contents = $this->jig->renderTemplateFile('extending/filters/index');
+        $contents = $this->jigDispatcher->renderTemplateFile('extending/filters/index');
         $this->saveExampleOutput('extending/filters', $contents);
     }
 
@@ -112,7 +97,7 @@ class ExampleTest extends BaseTestCase
         $this->injector->share($contactUsMock);
         
         $obj = $this->injector->make('JigDocs\Model\ContactUs');        
-        $contents = $this->jig->renderTemplateFile('unitTesting/basic/correct');
+        $contents = $this->jigDispatcher->renderTemplateFile('unitTesting/basic/correct');
 //Example end
         $this->saveExampleOutput('unitTesting/basic', $contents);
     }
@@ -125,7 +110,7 @@ class ExampleTest extends BaseTestCase
             ->andReturn("Foo");
         $this->injector->alias('TierJig\Model\ContactUs', get_class($contactUsMock));
         $this->injector->share($contactUsMock);
-        $contents = $this->jig->renderTemplateFile('unitTesting/basic/error');
+        $contents = $this->jigDispatcher->renderTemplateFile('unitTesting/basic/error');
     }
     
     
@@ -135,11 +120,11 @@ class ExampleTest extends BaseTestCase
         $templateDirectory = dirname(__DIR__)."/./fixtures/example_templates/";
         $compileDirectory = dirname(__DIR__)."/./../tmp/generatedTemplates/";
 
-                $jigConfig = new JigConfig(
+        $jigConfig = new JigConfig(
             $templateDirectory,
             $compileDirectory,
-            "php.tpl",
-            Jig::COMPILE_ALWAYS
+            Jig::COMPILE_ALWAYS,
+            "php.tpl"
         );
 
 //Example extending_compileTimeBlocks
@@ -169,7 +154,7 @@ class ExampleTest extends BaseTestCase
             $blockEndFn
         );
 
-        $jigRender->checkTemplateCompiled('extending/compileTimeBlocks/index');
+        $jigRender->compile('extending/compileTimeBlocks/index');
         $className = $jigConfig->getFQCNFromTemplateName('extending/compileTimeBlocks/index');
         $contents = $injector->execute([$className, 'render']);
 //Example end
@@ -199,6 +184,13 @@ class ExampleTest extends BaseTestCase
         @mkdir(dirname($exampleFilename), 0777, true);
         file_put_contents($exampleFilename, $classContents);
     }
+    
+    public function testGettingStarted()
+    {
+        $contents = include __DIR__."/gettingStarted.php";
+        $this->saveExampleOutput('gettingStarted/basic', $contents);
+    }
+    
 }
 
 

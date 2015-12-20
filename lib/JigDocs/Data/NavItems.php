@@ -8,6 +8,7 @@ class NavItems implements \IteratorAggregate
     private $items = [];
 
     public function __construct(
+        AdvancedExamples $advancedExamples,
         SyntaxExamples $syntaxExamples, 
         ExtendingExamples $extendingExamples
     ) { 
@@ -16,9 +17,10 @@ class NavItems implements \IteratorAggregate
         $this->items[] = new NavItem('/syntax', 'Syntax', $syntaxExamples);
         $this->items[] = new NavItem('/filters', 'Filters');
         $this->items[] = new NavItem('/extending', 'Extending Jig', $extendingExamples);
-        $this->items[] = new NavItem('/testingTemplates', 'Unit testing');
+        $this->items[] = new NavItem('/advanced', 'Advanced examples', $advancedExamples);
+
         $this->items[] = new NavItem('/debugging', 'Debugging');
-        $this->items[] = new NavItem('/onePage', 'One page example');
+        $this->items[] = new NavItem('/onePageExample', 'One page example');
     }
 
     public function getIterator()

@@ -5,9 +5,9 @@ namespace JigDocs\Data;
 
 
 
-class SyntaxExamples extends Examples
+class SyntaxExamples implements Examples
 {    
-    public static function getList()
+    public function getList()
     {
         return [
             'basic' => 'Basic syntax',
@@ -20,24 +20,6 @@ class SyntaxExamples extends Examples
             'comment' => 'Comments',
             'literal' => 'Literal blocks',
         ];
-    }
-    
-    public function renderList()
-    {
-        $output = "<ul class='nav'>";
-        foreach (self::getList() as $example => $description) {
-            $output .= "<li>";
-            $output .= sprintf(
-                "<a href='/syntax/%s'>%s</a>",
-                $example,
-                $description
-            );
-            $output .= "</li>";
-        }
-        
-        $output .= "</ul>";
-        
-        return $output;
     }
 }
 
