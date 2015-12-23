@@ -5,11 +5,8 @@
     <div class="col-md-12">
       
       <h2>Plugin - blocks</h2>
-      
-      
-      
-      
-            <h4>
+
+      <h4>
         Example
       </h4>
       <p>

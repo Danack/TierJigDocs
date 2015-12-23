@@ -143,3 +143,23 @@ div.codeContent * {
         font-size: 10px;
     }
 }
+
+.codeExample {
+    margin-bottom: 10px;
+}
+
+.templateExample {
+    margin-bottom: 10px;
+    word-wrap: normal;
+    word-break: normal;
+}
+
+.templateExample pre {
+    white-space: pre-wrap; /* css-3 */
+    white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+    white-space: -pre-wrap; /* Opera 4-6 */
+    white-space: -o-pre-wrap; /* Opera 7 */
+    /* word-wrap: break-word;*/ /* Internet Explorer 5.5+ */
+    word-wrap: normal;
+    word-break: normal;
+}

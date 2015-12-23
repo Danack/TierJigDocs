@@ -1,4 +1,3 @@
-{plugin type='JigDocs\Plugin\FunctionPlugin'}
-{$string1 = "Hello"}
-{$string2 = "World"}
-{reverse($string1, $string2)}
+{plugin type='JigDocs\Plugin\ExamplePlugin'}
+{$string1 = "Hello world"}
+{reverse($string1)}

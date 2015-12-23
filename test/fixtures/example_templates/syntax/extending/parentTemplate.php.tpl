@@ -1,7 +1,7 @@
 This is before the block.
 
 {block name='overriddenBlock'}
-    This is block is set in the template that extends the parent template, so this text is not in the output.
+    This block is over-ridden by the block in the child template. This text, from the parent template, is not in the output.
 {/block}
 
 This is between the blocks

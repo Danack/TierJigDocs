@@ -128,11 +128,11 @@ function prepareJig(Jig $jig, $injector)
         ['Site\CodeHighlighter', 'renderExampleCodeEnd']
     );
     
-    $jig->bindCompileBlock(
-        'highlightCode',
-        ['Site\CodeHighlighter', 'highlightCodeStart'],
-        ['Site\CodeHighlighter', 'highlightCodeEnd']
-    );
+//    $jig->bindCompileBlock(
+//        'highlightCode',
+//        ['Site\CodeHighlighter', 'highlightCodeStart'],
+//        ['Site\CodeHighlighter', 'highlightCodeEnd']
+//    );
 }
 
 function createJigDispatcher(Config $config)

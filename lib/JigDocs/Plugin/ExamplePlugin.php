@@ -6,6 +6,11 @@ namespace JigDocs\Plugin;
 use Jig\Plugin;
 use Jig\JigException;
 
+function getColors()
+{
+    return ['red', 'green', 'blue'];
+}
+
 class ExamplePlugin implements Plugin
 {
     /**
@@ -32,7 +37,11 @@ class ExamplePlugin implements Plugin
      */
     public static function getFunctionList()
     {
-        return ['pluginFunction'];
+        return [
+            'getColors',
+            'pluginFunction',
+            'reverse'
+        ];
     }
     
     /**
@@ -43,8 +52,12 @@ class ExamplePlugin implements Plugin
      */
     public function callFunction($functionName, array $params)
     {
-        if ($functionName === 'pluginFunction') {
-            return call_user_func_array([$this, 'exampleFunction'], $params);
+        if (method_exists($this, $functionName) == true) {
+            return call_user_func_array([$this, $functionName], $params);
+        }
+
+        if ($functionName == 'getColors') {
+            return getColors();
         }
 
         throw new JigException("callFunction called for unknown function '$functionName'");
@@ -84,9 +97,18 @@ class ExamplePlugin implements Plugin
     {
         throw new JigException("callBlockRenderEnd called for unknown block '$blockName'");
     }
-    
+
+    /**
+     * @param $input
+     * @return string
+     */
     private function exampleFunction($input)
     {
         return strtoupper($input);
+    }
+    
+    public function reverse($string1)
+    {
+        return strrev($string1);
     }
 }

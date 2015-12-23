@@ -3,15 +3,13 @@
 
 namespace JigDocs\Data;
 
-class AdvancedExamples implements Examples
+class GettingStartedExamples implements Examples
 {    
     public function getList()
     {
         return [
-            'viewsWithoutControllers' => 'Views without controllers',
-            //'security' => 'Securing views',
-            'unitTesting' => 'Unit testing',
-            //'bestPractices' => 'Best practices'
+            'purePHP' => 'PurePHP',
+            'symfonyZend' => 'Symfony + Zend',
         ];
     }
 }

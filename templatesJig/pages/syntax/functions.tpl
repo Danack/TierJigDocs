@@ -3,13 +3,17 @@
 {block name='content'}
   <div class="row panel panel-default">
     <div class="col-md-12">
-        <h2>Functions</h2>
+      <h2>Functions</h2>
 
-        {renderTemplateFile syntax/basic/index}
-        {/renderTemplateFile}
+      <p>
+        Functions can be called, which is nice. Jig does not include any functions by default, instead functions must be brought into the template by adding a plugin to it.
+      </p>
 
-        {renderOutputFile syntax/basic}
-        {/renderOutputFile}
+      {renderTemplateFile syntax/functions/index}
+      {/renderTemplateFile}
+
+      {renderOutputFile syntax/functions}
+      {/renderOutputFile}
     </div>
   </div>
 {/block}

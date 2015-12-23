@@ -1,4 +1,4 @@
-{$x = 5}
+{$x = 7}
 
 {if $x != 0} 
     $x is not zero.
@@ -6,6 +6,6 @@
 
 {if $x > 10}
     $x is greater than ten.
-{else}
+{else}  
     $x is less than 10.
 {/if}

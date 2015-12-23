@@ -10,10 +10,11 @@ class NavItems implements \IteratorAggregate
     public function __construct(
         AdvancedExamples $advancedExamples,
         SyntaxExamples $syntaxExamples, 
-        ExtendingExamples $extendingExamples
+        ExtendingExamples $extendingExamples,
+        GettingStartedExamples $gettingStartedExamples
     ) { 
         $this->items[] = new NavItem('/', 'Introduction');
-        $this->items[] = new NavItem('/gettingStarted', 'Getting started');
+        $this->items[] = new NavItem('/gettingStarted', 'Getting started', $gettingStartedExamples);
         $this->items[] = new NavItem('/syntax', 'Syntax', $syntaxExamples);
         $this->items[] = new NavItem('/filters', 'Filters');
         $this->items[] = new NavItem('/extending', 'Extending Jig', $extendingExamples);

@@ -15,36 +15,60 @@ use Site\SiteException;
 
 
 
-function getTabbedPanel($output)
+function getTemplatePanel($templateName, $templateString)
 {
-    
-    
-    
-    
     $html = <<< HTML
-<div class="bs-example bs-example-tabs" data-example-id="togglable-tabs"> 
+<div class="templateExample" data-example-id=""> 
   <ul id="myTabs" class="nav nav-tabs" role="tablist">
     <li role="presentation" class="active">
-      <a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">
-      Raw output
-      </a>
-    </li>
-
-    <li role="presentation" class="">
-      <a href="#htmlbr" role="tab" id="htmlbr-tab" data-toggle="tab" aria-controls="htmlbr" aria-expanded="false">
-        HTML with br
-      </a>
-    </li>
-    
-    <li role="presentation" class="">
-      <a href="#html" role="tab" id="html-tab" data-toggle="tab" aria-controls="profile" aria-expanded="false">
-        HTML
+      <a href="#raw" id="raw-tab" role="tab" data-toggle="tab" aria-controls="raw" aria-expanded="true">
+      Template '%s' 
       </a>
     </li>
   </ul>
     
   <div id="myTabContent" class="tab-content codeContent">
-    <div role="tabpanel" class="tab-pane active" id="home" aria-labelledby="home-tab"> 
+    <div role="tabpanel" class="tab-pane active" id="raw" aria-labelledby="home-tab"> 
+      <pre>%s</pre>
+    </div>
+  </div>
+</div>
+HTML;
+
+    return sprintf(
+        $html,
+        $templateName,
+        htmlentities($templateString, ENT_DISALLOWED | ENT_HTML401 | ENT_NOQUOTES, 'UTF-8')
+    );
+}
+
+
+function getTabbedPanel($output)
+{
+    $html = <<< HTML
+<div class="codeExample" data-example-id=""> 
+  <ul id="myTabs" class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active">
+      <a href="#pre" id="pre-tab" role="tab" data-toggle="tab" aria-controls="pre" aria-expanded="true">
+      Output, pre format
+      </a>
+    </li>
+
+    <li role="presentation" class="">
+      <a href="#htmlbr" role="tab" id="htmlbr-tab" data-toggle="tab" aria-controls="htmlbr" aria-expanded="false">
+        Ouput, HTML with br
+      </a>
+    </li>
+    
+    <li role="presentation" class="">
+      <a href="#html" role="tab" id="html-tab" data-toggle="tab" aria-controls="html" aria-expanded="false">
+        Output, HTML
+      </a>
+    </li>
+  </ul>
+    
+  <div id="myTabContent" class="tab-content codeContent">
+    <div role="tabpanel" class="tab-pane active" id="pre" aria-labelledby="pre-tab"> 
       <pre>%s</pre>
     </div>
     <div role="tabpanel" class="tab-pane codeContent" id="htmlbr" aria-labelledby="htmlbr-tab">
@@ -57,7 +81,7 @@ function getTabbedPanel($output)
 </div>
 HTML;
 
-    $panel1Text = ($output); 
+    $panel1Text = htmlentities($output, ENT_DISALLOWED | ENT_HTML401 | ENT_NOQUOTES, 'UTF-8');
     $panel2Text = nl2br($output);
     $panel3Text = $output;
     
@@ -165,16 +189,14 @@ class CodeHighlighter
         $path = __DIR__."/../../test/fixtures/example_templates/";
         $dirPath = realpath($path);
         $template = trim($extraText);
-        $output = '';
-    
+
         $templatePath = $dirPath.'/'.$template.'.php.tpl';
-        $output .= "Template: $template<br/>";
-        $output .= "<pre>";
-        $string = file_get_contents($templatePath);
-        $string = htmlentities($string, ENT_DISALLOWED | ENT_HTML401 | ENT_NOQUOTES, 'UTF-8');
-        $output .= $string;
-        $output .= "</pre>";
-    
+        $templateString = @file_get_contents($templatePath);
+        if ($templateString === false) {
+            throw new SiteException("Failed to read template $templatePath");
+        }
+
+        $output = getTemplatePanel($template, $templateString);
         $jigConverter->addText($output);
     }
     
@@ -198,7 +220,6 @@ class CodeHighlighter
             throw new SiteException("Failed to read code from file $filename");
         }
     
-        
         $code = implode("", $codeLines);
         $highLightedCode = \Site\CodeHighlighter::highlight($code);
         $jigConverter->addText($highLightedCode);
@@ -284,12 +305,16 @@ class CodeHighlighter
     
     public static function highlightCodeStart(JigConverter $jigConverter, $extraText)
     {
+        $jigConverter->addText('<div class="tab-content codeContent">');
+        $jigConverter->addText('<pre>'); 
     }
     
     public static function highlightCodeEnd(JigConverter $jigConverter, $blockText)
     {
         $text = \Site\CodeHighlighter::highlight($blockText);
         $jigConverter->addText($text);
+        $jigConverter->addText('</pre>');
+        $jigConverter->addText('</div>');
     }
 
     public static function renderOutputFileStart(JigConverter $jigConverter, $extraText)

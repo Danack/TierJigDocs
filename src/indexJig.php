@@ -1,7 +1,5 @@
 <?php
 
-
-use Tier\Tier;
 use Room11\HTTP\Request;
 use Room11\HTTP\Body;
 use Auryn\Injector;

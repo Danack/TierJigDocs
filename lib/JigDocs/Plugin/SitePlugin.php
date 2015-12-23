@@ -23,6 +23,7 @@ class SitePlugin implements \Jig\Plugin
     public static function getBlockRenderList()
     {
         return [
+            'highlightCode'
         ];
     }
 
@@ -38,6 +39,12 @@ class SitePlugin implements \Jig\Plugin
         
         return array_merge($methodFunctions, self::$globalFunctions);
     }
+    
+    
+//        'highlightCode',
+//        ['Site\CodeHighlighter', 'highlightCodeStart'],
+//        ['Site\CodeHighlighter', 'highlightCodeEnd']
+//    );
 
     /**
      * @param string $functionName
@@ -97,6 +104,26 @@ class SitePlugin implements \Jig\Plugin
         
         throw new JigException($message);
     }
+    
+    public function highlightCodeBlockRenderStart($extraParam)
+    {
+        return '<div class="tab-content codeContent"><pre>'; 
+    }
+    
+    public static function highlightCodeBlockRenderEnd($contents)
+    {
+        $text = \Site\CodeHighlighter::highlight($contents);
+//        $jigConverter->addText($text);
+//        $jigConverter->addText('</pre>');
+//        $jigConverter->addText('</div>');
+//        
+        $text .= '</pre></div>';
+        
+        return $text;
+        
+    }
+
+    
 
     public function trimBlockRenderStart($segmentText)
     {

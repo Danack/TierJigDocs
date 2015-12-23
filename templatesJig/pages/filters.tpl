@@ -18,7 +18,7 @@
       The following filters are available in Jig by default:
       </p>
       
-      <ul>
+      <ul class="doclist">
         <li><span class='keyword'>html</span> - Some characters in HTML are reserved characters which have special meaning. The html filter replaces these reserved characters with the equivalent HTML entity string. For example the 'less than' sign is replaced with '{"&lt;"}'. </li>
 
         <li><span class='keyword'>attr</span> - 
@@ -34,7 +34,7 @@
         
         <!-- <li><span class='keyword'>nooutput</span> - prevents all output. This used internally by Jig, and may be useful occassionally for debuggin.</li> -->
 
-        <li><span class='keyword'>nofilter</span> - Do not filter the output. This should be used when calling a function that will return HTML, that i</li>
+        <li><span class='keyword'>nofilter</span> - Do not filter the output. This should be used when calling a function that will return HTML.</li>
       </ul>
 
       <p>

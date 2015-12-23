@@ -8,9 +8,9 @@ class syntaxinjectingOutput {
     {
         $content = <<< 'OUTPUT'
 
-    http://chat.stackoverflow.com/rooms/11/php - Room 11
-    http://phpimagick.com - Imagick by example
-    http://tywkiwdbi.blogspot.co.uk/ - TYWKIWDBI
+    <a href="http://chat.stackoverflow.com/rooms/11/php">Room 11</a><br/>
+    <a href="http://phpimagick.com">Imagick by example</a><br/>
+    <a href="http://tywkiwdbi.blogspot.co.uk/">TYWKIWDBI</a><br/>
 
 OUTPUT;
 

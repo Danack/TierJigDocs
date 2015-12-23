@@ -8,7 +8,7 @@ class extendingfunctionsOutput {
     {
         $content = <<< 'OUTPUT'
 
-dlroW olleH
+dlrow olleH
 OUTPUT;
 
         return $content;

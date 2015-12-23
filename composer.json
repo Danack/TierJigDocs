@@ -30,6 +30,7 @@
             "JigDocs": "lib/",
             "Site": "lib/",
             "TierDocs": "lib/",
+            "Jig/CompiledTemplate": "var/compilejig/",
             "FileFilter": ["./lib/" ],
             "FilePacker": ["./lib/" ],
             "ScriptServer": ["./lib/" ],

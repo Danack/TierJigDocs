@@ -9,12 +9,10 @@ class syntaxfunctionsOutput {
         $content = <<< 'OUTPUT'
 
 
-Pen &gt; sword
-
-Pen > sword
 
 
 
+dlrow olleH
 OUTPUT;
 
         return $content;

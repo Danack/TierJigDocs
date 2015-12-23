@@ -8,9 +8,8 @@
       </h2>
 
       <p>
-        Words about how to get started go here.
+        Using Jig directly is pretty simple. The code below shows how to create a JigConfig object, and then instantiate a Jig object to do the rendering. 
       </p>
-      
 
         <p>
           {renderExampleCode example='gettingStarted/basic'}
@@ -23,8 +22,6 @@
 
         {renderOutputFile gettingStarted/basic}
         {/renderOutputFile}
-
-      
     </div>
   </div>
 {/block}

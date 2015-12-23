@@ -10,7 +10,7 @@ class syntaxextendingOutput {
 This is before the block.
 
 
-    This block is set in the template that extends the parent template.
+    This block is set in the child template that extends the parent template.
 
 
 This is between the blocks

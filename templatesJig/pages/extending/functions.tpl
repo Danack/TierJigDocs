@@ -8,21 +8,18 @@
       
       <p>
         Plugin functions add functions to templates!
-        
       </p>
-      
-      
-      
-        {renderTemplateFile extending/functions/index}
-        {/renderTemplateFile}
 
-        {renderOutputFile extending/functions}
-        {/renderOutputFile}
+      {renderTemplateFile extending/functions/index}
+      {/renderTemplateFile}
 
-        <p>
-          {renderExampleCode example='extending/functionplugin'}
-          {/renderExampleCode}
-        </p>
+      {renderOutputFile extending/functions}
+      {/renderOutputFile}
+
+      <p>
+        {renderExampleCode example='extending/functionplugin'}
+        {/renderExampleCode}
+      </p>
     </div>
   </div>
 {/block}

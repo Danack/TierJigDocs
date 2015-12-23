@@ -12,7 +12,7 @@ class syntaxifelseOutput {
     $x is not zero.
 
 
-
+  
     $x is less than 10.
 
 
