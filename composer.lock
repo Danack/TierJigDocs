@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "4e710b2ec6c3e213348ac0f02c248c14",
+    "hash": "d8d7e3b10c25765ded2c526f1a3a10ed",
     "packages": [
         {
             "name": "danack/console",
@@ -110,16 +110,16 @@
         },
         {
             "name": "danack/jig",
-            "version": "0.20.0",
+            "version": "0.20.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Danack/Jig.git",
-                "reference": "8b855d2fed82ccaca29beca5e64966b6f7a513f5"
+                "reference": "ce95adf54558e590ceb51c41b40550b22f7dd058"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Danack/Jig/zipball/8b855d2fed82ccaca29beca5e64966b6f7a513f5",
-                "reference": "8b855d2fed82ccaca29beca5e64966b6f7a513f5",
+                "url": "https://api.github.com/repos/Danack/Jig/zipball/ce95adf54558e590ceb51c41b40550b22f7dd058",
+                "reference": "ce95adf54558e590ceb51c41b40550b22f7dd058",
                 "shasum": ""
             },
             "require": {
@@ -157,7 +157,7 @@
                 "template",
                 "view"
             ],
-            "time": "2015-12-20 15:07:10"
+            "time": "2015-12-23 20:06:59"
         },
         {
             "name": "danack/scripthelper",
