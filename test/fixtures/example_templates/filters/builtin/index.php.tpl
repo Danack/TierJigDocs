@@ -1,4 +1,4 @@
-{$testString="This is a test '<' string. "}
+{$testString = "This is a test '<i>' string '</i>'."}
 {$testString | html}
 {$testString | attr}
 {$testString | js}

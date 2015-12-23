@@ -7,8 +7,6 @@ class extendingcompileTimeBlocksOutput {
     function renderOutput()
     {
         $content = <<< 'OUTPUT'
-
-
 This is the block startExtra text is startParam='foo'
 
 This is some template text.

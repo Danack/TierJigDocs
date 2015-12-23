@@ -7,13 +7,10 @@ class syntaxextendingOutput {
     function renderOutput()
     {
         $content = <<< 'OUTPUT'
-
-
 This is before the block.
 
 
     This block is set in the template that extends the parent template.
-
 
 
 This is between the blocks

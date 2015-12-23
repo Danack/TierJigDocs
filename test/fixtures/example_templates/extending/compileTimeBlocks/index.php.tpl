@@ -1,5 +1,3 @@
-
-
 {replaceCompileTime startParam='foo'}
 
 This is some template text.

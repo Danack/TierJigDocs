@@ -218,10 +218,15 @@
     margin-top: 4px;
   }
 
-  @media (min-width: @grid-float-breakpoint) {
+  //@media (min-width: @grid-float-breakpoint) {
+  @media (min-width: @screen-md-min) {
     display: none;
   }
 }
+
+//@screen-md:                  992px;
+//@screen-md-min:              @screen-md;
+
 
 
 // Navbar nav links
@@ -238,7 +243,9 @@
     line-height: @line-height-computed;
   }
 
-  @media (max-width: @grid-float-breakpoint-max) {
+  //@media (max-width: @grid-float-breakpoint-max) {
+  @media (max-width: @screen-md-min) {
+    
     // Dropdowns get custom display when collapsed
     .open .dropdown-menu {
       position: static;

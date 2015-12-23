@@ -330,7 +330,10 @@
 @grid-gutter-width:         30px;
 // Navbar collapse
 //** Point at which the navbar becomes uncollapsed.
-@grid-float-breakpoint:     @screen-sm-min;
+//@grid-float-breakpoint:     @screen-sm-min;
+
+@grid-float-breakpoint:     @screen-md;
+
 //** Point at which the navbar begins collapsing.
 @grid-float-breakpoint-max: (@grid-float-breakpoint - 1);
 
@@ -425,17 +428,24 @@
 @nav-link-padding:                          10px 15px;
 @nav-link-hover-bg:                         @gray-darker;
 
+@nav-link-hover-color:                      @gray-lighter;
+
 @nav-disabled-link-color:                   @gray-light;
 @nav-disabled-link-hover-color:             @gray-light;
 
 //== Tabs
 @nav-tabs-border-color:                     @gray-dark;
 
-@nav-tabs-link-hover-border-color:          transparent;
+@nav-tabs-link-border-color:          blue;
 
-@nav-tabs-active-link-hover-bg:             @brand-primary;
+//@nav-tabs-link-hover-border-color:          transparent;
+@nav-tabs-link-hover-border-color:          white;
+
+
+
+@nav-tabs-active-link-hover-bg:             darken(@brand-primary, 20%);
 @nav-tabs-active-link-hover-color:          #fff;
-@nav-tabs-active-link-hover-border-color:   @gray-dark;
+@nav-tabs-active-link-hover-border-color:   #fff;
 
 @nav-tabs-justified-link-border-color:            #ddd;
 @nav-tabs-justified-active-link-border-color:     @body-bg;

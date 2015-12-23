@@ -15,7 +15,7 @@
       </p>
       
       <p>
-        <a href="/extending/commpileTimeBlocks">Compile time blocks</a> add functionality to how the templates are compiled into PHP, which is done before the templates are rendered. 
+        <a href="/extending/compileTimeBlocks">Compile time blocks</a> add functionality to how the templates are compiled into PHP, which is done before the templates are rendered. 
       </p>
     </div>
   </div>

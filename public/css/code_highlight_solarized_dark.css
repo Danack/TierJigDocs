@@ -188,6 +188,18 @@ pre.code {
   color: inherit;
   background-color: inherit;
 }
+.php_T_COMMENT {
+  color: inherit;
+  background-color: inherit;
+}
+.php_T_STRING {
+  color: #ffc036;
+  background-color: inherit;
+}
+.php_T_DIR {
+  color: #2aa198;
+  background-color: inherit;
+}
 /* No code uses this color
  {
     color: @interface-color;

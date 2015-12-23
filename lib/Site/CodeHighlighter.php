@@ -13,6 +13,58 @@ use Site\SiteException;
 // 
 // Original code is available from https://github.com/digitalnature/php-highlight
 
+
+
+function getTabbedPanel($output)
+{
+    
+    
+    
+    
+    $html = <<< HTML
+<div class="bs-example bs-example-tabs" data-example-id="togglable-tabs"> 
+  <ul id="myTabs" class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active">
+      <a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">
+      Raw output
+      </a>
+    </li>
+
+    <li role="presentation" class="">
+      <a href="#htmlbr" role="tab" id="htmlbr-tab" data-toggle="tab" aria-controls="htmlbr" aria-expanded="false">
+        HTML with br
+      </a>
+    </li>
+    
+    <li role="presentation" class="">
+      <a href="#html" role="tab" id="html-tab" data-toggle="tab" aria-controls="profile" aria-expanded="false">
+        HTML
+      </a>
+    </li>
+  </ul>
+    
+  <div id="myTabContent" class="tab-content codeContent">
+    <div role="tabpanel" class="tab-pane active" id="home" aria-labelledby="home-tab"> 
+      <pre>%s</pre>
+    </div>
+    <div role="tabpanel" class="tab-pane codeContent" id="htmlbr" aria-labelledby="htmlbr-tab">
+      <p>%s</p>
+    </div>
+    <div role="tabpanel" class="tab-pane codeContent" id="html" aria-labelledby="html-tab">
+      <p>%s</p>
+    </div>
+  </div>
+</div>
+HTML;
+
+    $panel1Text = ($output); 
+    $panel2Text = nl2br($output);
+    $panel3Text = $output;
+    
+    return sprintf($html, $panel1Text, $panel2Text, $panel3Text);
+}
+
+
 class CodeHighlighter
 {
     private static $stringClassMapping = [
@@ -239,27 +291,7 @@ class CodeHighlighter
         $text = \Site\CodeHighlighter::highlight($blockText);
         $jigConverter->addText($text);
     }
-    
-    public static function renderOutput($exampleName)
-    {
-        $classname = getExampleClassnameFromTemplate($exampleName);
-    
-        if (class_exists($classname) == false) {
-            throw new SiteException("Class $classname is missing.");
-        }
-    
-        $object = new $classname();
-    
-        $output = "Output:<br/>";
-        $output .= "<pre>";
-        $string = $object->renderOutput();
-        $string = htmlentities($string, ENT_DISALLOWED | ENT_HTML401 | ENT_NOQUOTES, 'UTF-8');
-        $output .= $string;
-        $output .= "</pre>";
-        
-        echo $output;
-    }
-    
+
     public static function renderOutputFileStart(JigConverter $jigConverter, $extraText)
     {
         $exampleName = trim($extraText);
@@ -269,14 +301,14 @@ class CodeHighlighter
         }
     
         $object = new $classname();
-        $output = "Output:<br/>";
-        $output .= "<pre>";
-        $string = $object->renderOutput();
-        $string = htmlentities($string, ENT_DISALLOWED | ENT_HTML401 | ENT_NOQUOTES, 'UTF-8');
-        $output .= $string;
-        $output .= "</pre>";
-    
-        $jigConverter->addText($output);
+        $output = $object->renderOutput();
+
+
+        $string = getTabbedPanel(
+            $output
+        );
+
+        $jigConverter->addText($string);
     }
 
 }

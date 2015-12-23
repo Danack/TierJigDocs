@@ -6,22 +6,41 @@
 
        <h2>Injecting dependencies</h2>
       
+      <p>
             Dependency injection needs to be done everywhere
 
 Jig allows you to use the `Auryn <https://github.com/rdlowrey/Auryn/>`_ DI library to inject objects into your templates very easily.
+      
+      </p>
 
-        {* inject name='bannerAd' value='Website\BannerAd' *}
+      <p>
+        <code>
+        {literal}
+        {inject name='bannerAd' value='Website\BannerAd'} <br/>
 
-        {* bannerAd->render() *}
+        {bannerAd->render()}
+        {/literal}
+        </code>
+      </p>
 
-You can now alias 'Website\BannerAd' to an specific implementation of a BannerAdvert:
+      <p>
+        You can now alias 'Website\BannerAd' to an specific implementation of a BannerAdvert:
+      </p>
 
-        $injector->alias('Website\BannerAd', 'Website\SummerSaleBannerAd')
+      <p>
+        <code>$injector->alias('Website\BannerAd', 'Website\SummerSaleBannerAd');</code>
+      </p>
 
-
-When the template is rendered, it will have an instance of SummerSaleBannerAd injected into it. By using dependency injection to inject the appropriate objects into your webpage, you can remove almost all of the conditional code from your templates. 
+      
+      function createBannerAd()
+      {
+         
+      }
       
       
+      
+      <p>
+When the template is rendered, it will have an instance of SummerSaleBannerAd injected into it. By using dependency injection to inject the appropriate objects into your webpage, you can remove most of the conditional code from your templates. 
       </p>
 
       

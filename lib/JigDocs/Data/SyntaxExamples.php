@@ -17,7 +17,7 @@ class SyntaxExamples implements Examples
             'including' => 'Including templates',
             'extend' => 'Extending templates', 
             'inject' => 'Injecting dependencies',
-            'comment' => 'Comments',
+            'comments' => 'Comments',
             'literal' => 'Literal blocks',
         ];
     }
