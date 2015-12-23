@@ -3,7 +3,7 @@
 
 namespace JigDocs\Data;
 
-class NavItem
+class NavItem implements \IteratorAggregate
 {
     private $path;
     private $description;
@@ -27,6 +27,16 @@ class NavItem
     }
 
     /**
+     * @return Examples
+     */
+    public function getExamples()
+    {
+        return $this->examples;
+    }
+
+    
+    
+    /**
      * @return mixed
      */
     public function getPath()
@@ -42,6 +52,16 @@ class NavItem
             $this->getDescription()
         );
     }
+
+    public function getIterator()
+    {
+        if ($this->examples) {
+            return new \ArrayIterator($this->examples->getList());
+        }
+
+        return new \ArrayIterator([]);
+    }
+
     public function renderChild()
     {
         if ($this->examples == null) {

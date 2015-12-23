@@ -15,6 +15,29 @@
         </div>
       </div>
     </div>
+    
+    <div class="collapse" id="bs-example-navbar-collapse-1">
+      {inject name='navItems' type='JigDocs\Data\NavItems'}
+
+      <ul class="nav nav-list">
+        {foreach $navItems as $navItem}
+        <li>
+          {$navItem->render() | nofilter}
+        </li>
+
+          {$subExamples = $navItem->getExamples()}
+          {if $subExamples}
+            {$exampleList = $subExamples->getList()}
+            {foreach $exampleList as $path => $description}
+              <li><a href="{$navItem->getPath()}/{$path}">{$navItem->getDescription()}-{$description}</a></li>
+            {/foreach}
+          {/if}
+        {/foreach}
+      </ul>
+
+      
+      
+    </div>
 
   <!--
     <div class="visible-sm visible-xs">
