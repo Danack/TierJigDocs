@@ -10,7 +10,7 @@
 
     "require":{
         "danack/console": "^2.6.1",
-        "danack/filefilter": "^0.0.3",
+        "danack/filefilter": "^0.0.4",
         "danack/jig": "^0.20.0",
         "danack/scripthelper": "^0.0.2",
         "danack/tier": "^0.2.6",

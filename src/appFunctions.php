@@ -171,6 +171,7 @@ function createScriptInclude(
     \ScriptHelper\ScriptURLGenerator $scriptURLGenerator
 ) {
     $packScript = $config->getKey(Config::SCRIPT_PACKING);
+    $packScript = true;
     if ($packScript) {
         return new \ScriptHelper\ScriptInclude\ScriptIncludePacked($scriptURLGenerator);
     }
