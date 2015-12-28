@@ -30,7 +30,7 @@ $injectionParams->delegate('FastRoute\Dispatcher', 'createJigDispatcher');
 $injectionParams->delegate('Jig\JigConfig', 'createJigConfigForJigDocs');
 
 if (strcasecmp(PHP_SAPI, 'cli') == 0) {
-    $request = new CLIRequest('/');
+    $request = new CLIRequest('/extending/plugins');
 }
 else {
     $request = \Tier\createRequestFromGlobals();
@@ -52,6 +52,7 @@ $app->addExpectedProduct('Room11\HTTP\Body');
 
 $app->addGenerateBodyExecutable($executable);
 $app->addSendCallable('Tier\sendBodyResponse');
+$app->addPostCallable('Tier\finishUp');
 
 $app->createStandardExceptionResolver();
 

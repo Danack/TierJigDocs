@@ -23,7 +23,8 @@ class SitePlugin implements \Jig\Plugin
     public static function getBlockRenderList()
     {
         return [
-            'highlightCode'
+            'highlightCode',
+            'highlightTemplate'
         ];
     }
 
@@ -173,6 +174,20 @@ class SitePlugin implements \Jig\Plugin
     {
         return $item;
     }
+    
+    
+   
+
+    public function highlightTemplateBlockRenderStart($extraParam)
+    {
+        //return '<div class="tab-content codeContent"><pre>'; 
+    }
+    
+    public static function highlightTemplateBlockRenderEnd($contents)
+    {
+        return \Site\CodeHighlighter::getTemplatePanel(null, $contents);
+    }
+    
     
 //Example_end
 }

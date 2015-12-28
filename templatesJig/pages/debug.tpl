@@ -9,7 +9,7 @@
 
 Shmoan
       {$foo = "bar"}
-      
+
       {$foo = test($foo)}
       
       {$foo}

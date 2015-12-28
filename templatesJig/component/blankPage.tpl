@@ -5,11 +5,11 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-2 visible-md visible-lg">
+    <div class="col-md-3 visible-md visible-lg columnAdjustInLeft">
         {include file='component/sidebar'}
     </div>
 
-    <div class="col-md-10 columnAdjust mainContent">  
+    <div class="col-md-9 columnAdjust mainContent">  
     {block name='content'}
         This is the blank page - it should never be seen.
     {/block}

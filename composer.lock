@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d8d7e3b10c25765ded2c526f1a3a10ed",
+    "hash": "65e9b43d610196553b82030fc0f30a20",
     "packages": [
         {
             "name": "danack/console",
@@ -110,16 +110,16 @@
         },
         {
             "name": "danack/jig",
-            "version": "0.20.1",
+            "version": "0.20.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Danack/Jig.git",
-                "reference": "ce95adf54558e590ceb51c41b40550b22f7dd058"
+                "reference": "e0f00c9bc281d986870f216d0d4657234ec1a394"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Danack/Jig/zipball/ce95adf54558e590ceb51c41b40550b22f7dd058",
-                "reference": "ce95adf54558e590ceb51c41b40550b22f7dd058",
+                "url": "https://api.github.com/repos/Danack/Jig/zipball/e0f00c9bc281d986870f216d0d4657234ec1a394",
+                "reference": "e0f00c9bc281d986870f216d0d4657234ec1a394",
                 "shasum": ""
             },
             "require": {
@@ -157,7 +157,7 @@
                 "template",
                 "view"
             ],
-            "time": "2015-12-23 20:06:59"
+            "time": "2015-12-28 13:32:06"
         },
         {
             "name": "danack/scripthelper",
@@ -1732,16 +1732,16 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v2.8.0",
+            "version": "v2.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "f79824187de95064a2f5038904c4d7f0227fedb5"
+                "reference": "ac84cbb98b68a6abbc9f5149eb96ccc7b07b8966"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/f79824187de95064a2f5038904c4d7f0227fedb5",
-                "reference": "f79824187de95064a2f5038904c4d7f0227fedb5",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/ac84cbb98b68a6abbc9f5149eb96ccc7b07b8966",
+                "reference": "ac84cbb98b68a6abbc9f5149eb96ccc7b07b8966",
                 "shasum": ""
             },
             "require": {
@@ -1777,7 +1777,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2015-11-30 12:35:10"
+            "time": "2015-12-26 13:37:56"
         }
     ],
     "aliases": [],

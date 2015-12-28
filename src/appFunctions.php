@@ -110,6 +110,8 @@ function renderTemplates($templates)
 
 function prepareJig(Jig $jig, $injector)
 {
+    $jig->addDefaultPlugin('JigDocs\Plugin\SitePlugin');
+    
     $jig->bindCompileBlock(
         'renderOutputFile',
         ['Site\CodeHighlighter', 'renderOutputFileStart'],
@@ -171,7 +173,7 @@ function createScriptInclude(
     \ScriptHelper\ScriptURLGenerator $scriptURLGenerator
 ) {
     $packScript = $config->getKey(Config::SCRIPT_PACKING);
-    $packScript = true;
+//    $packScript = true;
     if ($packScript) {
         return new \ScriptHelper\ScriptInclude\ScriptIncludePacked($scriptURLGenerator);
     }
@@ -180,8 +182,14 @@ function createScriptInclude(
     }
 }
 
-
 function createUserInfo()
 {
     return new \JigDocs\Model\UserInfo("Danack", "MrDanack");
+}
+
+function createDispatcher()
+{
+    $dispatcher = FastRoute\simpleDispatcher('routesFunction');
+    
+    return $dispatcher;
 }

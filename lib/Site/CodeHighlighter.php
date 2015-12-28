@@ -2,45 +2,9 @@
 
 namespace Site;
 
-use Jig\JigConfig;
-use Jig\Jig;
 use Jig\Converter\JigConverter;
-use Site\SiteException;
-
-// Code is copyright of DigitalNature. No license file was attached to the code
-// repository, but the code was offered for use, so I have assumed the author intended
-// for people to use the code.
-// 
-// Original code is available from https://github.com/digitalnature/php-highlight
 
 
-
-function getTemplatePanel($templateName, $templateString)
-{
-    $html = <<< HTML
-<div class="templateExample" data-example-id=""> 
-  <ul id="myTabs" class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="active">
-      <a href="#raw" id="raw-tab" role="tab" data-toggle="tab" aria-controls="raw" aria-expanded="true">
-      Template '%s' 
-      </a>
-    </li>
-  </ul>
-    
-  <div id="myTabContent" class="tab-content codeContent">
-    <div role="tabpanel" class="tab-pane active" id="raw" aria-labelledby="home-tab"> 
-      <pre>%s</pre>
-    </div>
-  </div>
-</div>
-HTML;
-
-    return sprintf(
-        $html,
-        $templateName,
-        htmlentities($templateString, ENT_DISALLOWED | ENT_HTML401 | ENT_NOQUOTES, 'UTF-8')
-    );
-}
 
 
 function getTabbedPanel($output)
@@ -105,6 +69,12 @@ class CodeHighlighter
     /**
      * Highlights PHP syntax from the given string and formats it as HTML
      *
+     * // Code is copyright of DigitalNature. No license file was attached to the code
+// repository, but the code was offered for use, so I have assumed the author intended
+// for people to use the code.
+// 
+// Original code is available from https://github.com/digitalnature/php-highlight
+     * 
      * @version 1.0
      * @author  digitalnature, http://digitalnature.eu
      * @param   string $code
@@ -196,7 +166,7 @@ class CodeHighlighter
             throw new SiteException("Failed to read template $templatePath");
         }
 
-        $output = getTemplatePanel($template, $templateString);
+        $output = self::getTemplatePanel($template, $templateString);
         $jigConverter->addText($output);
     }
     
@@ -335,5 +305,38 @@ class CodeHighlighter
 
         $jigConverter->addText($string);
     }
+    
+    public static function getTemplatePanel($templateName, $templateString)
+    {
+        $html = <<< HTML
+    <div class="templateExample" data-example-id=""> 
+      <ul id="myTabs" class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active">
+          <a href="#raw" id="raw-tab" role="tab" data-toggle="tab" aria-controls="raw" aria-expanded="true">
+            %s
+          </a>
+        </li>
+      </ul>
+        
+      <div id="myTabContent" class="tab-content codeContent">
+        <div role="tabpanel" class="tab-pane active" id="raw" aria-labelledby="home-tab"> 
+          <pre>%s</pre>
+        </div>
+      </div>
+    </div>
+HTML;
+        $templateDescriptionString = 'Template';
+        if ($templateName) {
+            $templateDescriptionString = sprintf(
+                "Template '%s'",
+                $templateName
+            );
+        }
 
+        return sprintf(
+            $html,
+            $templateDescriptionString,
+            htmlentities($templateString, ENT_DISALLOWED | ENT_HTML401 | ENT_NOQUOTES, 'UTF-8')
+        );
+    }
 }
