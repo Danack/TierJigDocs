@@ -9,6 +9,7 @@ class GettingStartedExamples implements Examples
     {
         return [
             'purePHP' => 'PurePHP',
+            'tierJig' => 'Jig + Tier skeleton app',
             'symfonyZend' => 'Symfony + Zend',
         ];
     }
