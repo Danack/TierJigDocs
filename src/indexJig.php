@@ -19,7 +19,13 @@ require __DIR__."/../vendor/danack/tier/src/Tier/tierFunctions.php";
 # Tier handles all displaying of errors.
 ini_set('display_errors', 'off');
 
-require_once __DIR__."/../autogen/appEnv.php";
+//require_once __DIR__."/../autogen/appEnv.php";
+
+$appEnvIncluded = @include_once __DIR__."/../autogen/appEnv.php";
+if (!$appEnvIncluded) {
+    //In a non-skeleton app, we would not need to have conditional includes
+    require_once __DIR__."/appEnv.php";
+}
 
 // Contains helper functions for the application.
 require_once "appFunctions.php";
