@@ -1,7 +1,6 @@
 <?php
 
 use Tier\InjectionParams;
-use RouteCachePath
 
 // These classes will only be created once by the injector.
 $shares = [
