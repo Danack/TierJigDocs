@@ -101,6 +101,17 @@ li.active {
     padding-bottom: 1em;
 }
 
+.mainContent ul.instruction_list {
+   padding-left: 10px;
+}
+
+.mainContent ul.instruction_list li {
+    list-style-type: none;
+    padding-left: 0px;
+    padding-top: 4px;
+    padding-left: 0px;
+}
+
 
 ul.functionList {
    padding-left: 6px;

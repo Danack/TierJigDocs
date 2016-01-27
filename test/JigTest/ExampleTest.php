@@ -4,6 +4,8 @@ namespace JigTest;
 
 use Jig\Jig;
 use Jig\Converter\JigConverter;
+use Jig\JigTemplatePath;
+use Jig\JigCompilePath;
 use Jig\JigConfig;
 use Jig\JigDispatcher;
 use Mockery;
@@ -117,12 +119,12 @@ class ExampleTest extends BaseTestCase
     
     public function testCompileTimeBlock()
     {
-        $templateDirectory = dirname(__DIR__)."/./fixtures/example_templates/";
-        $compileDirectory = dirname(__DIR__)."/./../tmp/generatedTemplates/";
-
+        $templatePath = new JigTemplatePath(dirname(__DIR__)."/./fixtures/example_templates/");
+        $compilePath = new JigCompilePath(dirname(__DIR__)."/./../tmp/generatedTemplates/");
+        
         $jigConfig = new JigConfig(
-            $templateDirectory,
-            $compileDirectory,
+            $templatePath,
+            $compilePath,
             Jig::COMPILE_ALWAYS,
             "php.tpl"
         );

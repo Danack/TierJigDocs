@@ -11,7 +11,6 @@ class syntaxfunctionsOutput {
 
 
 
-
 dlrow olleH
 OUTPUT;
 

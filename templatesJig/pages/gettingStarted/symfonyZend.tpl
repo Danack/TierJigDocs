@@ -4,7 +4,7 @@
   <div class="row panel panel-default">
     <div class="col-md-12">
       <h2>
-        Using with Symfony or Zend frameworks
+        Using with Symfony or Zend framework
       </h2>
       <p>
         Anyone fancy writing a bridge/bundle for Symfony or Zend frameworks?

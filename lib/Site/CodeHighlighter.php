@@ -3,9 +3,7 @@
 namespace Site;
 
 use Jig\Converter\JigConverter;
-
-
-
+use JigDocs\App;
 
 function getTabbedPanel($output)
 {
@@ -290,14 +288,13 @@ class CodeHighlighter
     public static function renderOutputFileStart(JigConverter $jigConverter, $extraText)
     {
         $exampleName = trim($extraText);
-        $classname = getExampleClassnameFromTemplate($exampleName);
+        $classname = App::getExampleClassnameFromTemplate($exampleName);
         if (class_exists($classname) == false) {
             throw new SiteException("Class $classname is missing.");
         }
     
         $object = new $classname();
         $output = $object->renderOutput();
-
 
         $string = getTabbedPanel(
             $output

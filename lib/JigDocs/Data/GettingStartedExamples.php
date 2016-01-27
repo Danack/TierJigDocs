@@ -8,7 +8,7 @@ class GettingStartedExamples implements Examples
     public function getList()
     {
         return [
-            'purePHP' => 'PurePHP',
+            'vanillaPHP' => 'Vanilla PHP',
             'tierJig' => 'Jig + Tier skeleton app',
             'symfonyZend' => 'Symfony + Zend',
         ];

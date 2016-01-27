@@ -6,13 +6,15 @@ ob_start();
 use Auryn\Injector;
 use Jig\JigConfig;
 use Jig\Jig;
+use Jig\JigTemplatePath;
+use Jig\JigCompilePath;
 
 // Create a JigConfig object
 $jigConfig = new JigConfig(
-    //The directory the source templates are in
-    __DIR__."/../fixtures/example_templates/",
-    //The directory the generated PHP code will be written to.
-    __DIR__."/../tmp/generatedTemplates/",
+    //The path the source templates are in
+    new JigTemplatePath(__DIR__."/../fixtures/example_templates/"),
+    //The path the generated PHP code will be written to.
+    new JigCompilePath(__DIR__."/../tmp/generatedTemplates/"),
     // How to check if the templates need compiling.
     Jig::COMPILE_CHECK_MTIME,
     // The extension our templates will have.

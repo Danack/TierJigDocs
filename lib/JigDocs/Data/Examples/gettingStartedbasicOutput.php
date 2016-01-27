@@ -7,7 +7,7 @@ class gettingStartedbasicOutput {
     function renderOutput()
     {
         $content = <<< 'OUTPUT'
-This is a template!
+This is a template! <br/>
 
    Hello wolrd!<br/>
    Bonjour le monde!<br/>

@@ -3,6 +3,8 @@
 use Auryn\Injector;
 use Jig\JigConfig;
 use Jig\Jig;
+use Jig\JigTemplatePath;
+use Jig\JigCompilePath;
 
 $autoloader = require(__DIR__.'/../vendor/autoload.php');
 
@@ -24,13 +26,13 @@ function createTestInjector()
     }
     
     $injectionParams->addToInjector($injector);
-
-    $templateDirectory = __DIR__."/./fixtures/example_templates/";
-    $compileDirectory = __DIR__."/./tmp/generatedTemplates/";
+    
+    $templatePath = new JigTemplatePath(__DIR__."/./fixtures/example_templates/");
+    $compilePath = new JigCompilePath(__DIR__."/./tmp/generatedTemplates/");
 
     $jigConfig = new JigConfig(
-        $templateDirectory,
-        $compileDirectory,
+        $templatePath,
+        $compilePath,
         Jig::COMPILE_ALWAYS,
         "php.tpl"
     );

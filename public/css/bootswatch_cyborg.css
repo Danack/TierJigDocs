@@ -63,10 +63,10 @@ table .dropdown-menu a,
 }
 table .text-muted,
 .table .text-muted {
-  color: #888888;
+  color: #999999;
 }
 .table-responsive > .table {
-  background-color: #181818;
+  background-color: #1e1e1e;
 }
 .has-warning .help-block,
 .has-warning .control-label,
@@ -126,7 +126,7 @@ legend {
   color: #fff;
 }
 .input-group-addon {
-  background-color: #424242;
+  background-color: #5e5e5e;
 }
 .nav-tabs a,
 .nav-pills a,
@@ -155,12 +155,12 @@ legend {
 a.thumbnail:hover,
 a.thumbnail:focus,
 a.thumbnail.active {
-  border-color: #282828;
+  border-color: #444444;
 }
 a.list-group-item.active,
 a.list-group-item.active:hover,
 a.list-group-item.active:focus {
-  border-color: #282828;
+  border-color: #444444;
 }
 a.list-group-item-success.active {
   background-color: #77b300;
