@@ -1,60 +1,51 @@
 <?php
 
-
-use Tier\Tier;
 use Room11\HTTP\Request;
 use Room11\HTTP\Body;
-use Auryn\Injector;
-use Room11\HTTP\Response\Response;
-use Room11\HTTP\HeadersSet;
+use Tier\Tier;
 use Tier\TierHTTPApp;
+use Tier\Executable;
+use Room11\HTTP\Request\CLIRequest;
+
+# Tier handles all displaying of errors.
+ini_set('display_errors', 'on');
 
 require_once realpath(__DIR__).'/../vendor/autoload.php';
 
-// Contains helper functions for the 'framework'.
-require __DIR__."/../vendor/danack/tier/src/Tier/tierFunctions.php";
-
-\Tier\setupErrorHandlers();
+Tier::setupErrorHandlers();
 
 # Tier handles all displaying of errors.
 ini_set('display_errors', 'off');
 
-require_once __DIR__."/../autogen/appEnv.php";
-
-// Contains helper functions for the application.
-require_once "appFunctions.php";
+$appEnvIncluded = require_once __DIR__."/../autogen/appEnv.php";
 
 // Read application config params
-$injectionParams = require_once "injectionParams.php";
+$injectionParams = require_once "injectionParamsTier.php";
+$injectionParams->delegate('FastRoute\Dispatcher', ['TierDocs\App', 'createTierDispatcher']);
+$injectionParams->delegate('Jig\JigConfig', ['TierDocs\App', 'createJigConfigForTierDocs']);
+
+
+if (strcasecmp(PHP_SAPI, 'cli') == 0) {
+    $request = new CLIRequest('/', 'tier.phpjig.com');
+}
+else {
+    $request = Tier::createRequestFromGlobals();
+}
 
 // Create the first Tier that needs to be run.
-$tier = new Tier('routeRequest');
-
-
-$request = \Tier\createRequestFromGlobals();
-
-$injector = new Injector();
-$injector->share($request);
-$injector->alias(Request::class, get_class($request));
-
-//These are site specific
-$injector->delegate('FastRoute\Dispatcher', 'createTierDispatcher');
-$injector->delegate('Jig\JigConfig', 'createJigConfigForTierDocs');
-
-//$responseHeaders = new HeadersSet;
-//$injector->share($responseHeaders);
+$executable = new Executable(['Tier\JigBridge\JigRouter', 'routeRequest']);
 
 // Create the Tier application
-$app = new TierHTTPApp($injectionParams, $injector);
+$app = new TierHTTPApp($injectionParams);
 
-// The default exception handlers are good enough
-$app->setStandardExceptionHandlers();
-
+// Make the body that is generated be shared by TierApp
 $app->addExpectedProduct('Room11\HTTP\Body');
 
-$app->addResponseCallable($tier);
-$app->addBeforeSendCallable('addSessionHeader');
-$app->addSendCallable('Tier\sendBodyResponse');
+$app->addGenerateBodyExecutable($executable);
+$app->addSendExecutable(['Tier\Tier', 'sendBodyResponse']);
+
+$app->createStandardExceptionResolver();
 
 // Run it
 $app->execute($request);
+

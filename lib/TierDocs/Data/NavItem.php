@@ -1,9 +1,8 @@
 <?php
 
-
 namespace TierDocs\Data;
 
-class NavItem
+class NavItem implements \IteratorAggregate
 {
     private $path;
     private $description;
@@ -27,6 +26,16 @@ class NavItem
     }
 
     /**
+     * @return Examples
+     */
+    public function getExamples()
+    {
+        return $this->examples;
+    }
+
+    
+    
+    /**
      * @return mixed
      */
     public function getPath()
@@ -42,15 +51,37 @@ class NavItem
             $this->getDescription()
         );
     }
+
+    public function getIterator()
+    {
+        if ($this->examples) {
+            return new \ArrayIterator($this->examples->getList());
+        }
+
+        return new \ArrayIterator([]);
+    }
+
     public function renderChild()
     {
         if ($this->examples == null) {
             return '';
         }
-        $output = "<li>";
-        $output .= $this->examples->renderList();
+        $output = "<li class='subItem'>";
+
+        $output .= "<ul class='nav'>";
+        foreach ($this->examples->getList() as $example => $description) {
+            $output .= "<li>";
+            $output .= sprintf(
+                "<a href='%s/%s'>%s</a>",
+                $this->path,
+                $example,
+                $description
+            );
+            $output .= "</li>";
+        }
+        $output .= "</ul>";
         $output .= "</li>";
-        
+
         return $output;
     }
 }

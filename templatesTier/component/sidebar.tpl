@@ -2,18 +2,18 @@
 {inject name='navItems' type='TierDocs\Data\NavItems'}
 
 
-<nav class="bs-docs-sidebar hidden-print">
-
-    <ul class="nav">
+<div class="row panel panel-default pastLinks bs-docs-sidebar hidden-print">
+  <div class="col-md-12">
+    <nav class="bs-docs-sidebar hidden-print">
+      <ul class="nav">
         {foreach $navItems as $navItem}
-        <li>
-            {$navItem->render() | nofilter}
-        </li>
+      <li>
+          {$navItem->render() | nofilter}
+      </li>
 
-        {$navItem->renderChild() | nofilter}
-
+          {$navItem->renderChild() | nofilter}
         {/foreach}
-    </ul>
-
-    {* include file='component/colorSelector' *}
-</nav>
+      </ul>
+    </nav>
+  </div>
+</div>

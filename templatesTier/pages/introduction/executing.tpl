@@ -1,10 +1,6 @@
-
 {extends file="component/blankPage"}
 
 {block name='content'}
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
 
 <h1>How Tier works</h1>
 
@@ -52,13 +48,8 @@ This site uses a simple set of tiers to render the pages. The tiers are:
 
 <h2>Other examples</h2>
 <p>
-Please look at the <a href='/examples/index'>example page</a> for more examples of how using different Tiers of execution can be used to solve architectural problems in an application. 
+Please look at the <a href='/examples'>example page</a> for more examples of how using different Tiers of execution can be used to solve architectural problems in an application. 
 </p>
 
-
-                
-
-            </div>
-        </div>
-    </div>
+    
 {/block}

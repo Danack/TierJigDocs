@@ -3976,6 +3976,9 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   text-decoration: none;
   background-color: #282828;
 }
+.nav > li li.subitem a {
+  color: #123456;
+}
 .nav > li.disabled > a {
   color: #999999;
 }

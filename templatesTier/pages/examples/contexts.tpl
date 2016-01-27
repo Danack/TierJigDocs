@@ -2,9 +2,7 @@
 {extends file="component/blankPage"}
 
 {block name='content'}
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-12">
+
         
 <h2>
     Context example
@@ -15,10 +13,4 @@
 </p>
 
         
-
-
-
-     </div>
-   </div>
- </div>
 {/block}

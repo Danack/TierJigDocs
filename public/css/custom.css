@@ -182,3 +182,12 @@ div.codeContent * {
     word-wrap: normal;
     word-break: normal;
 }
+
+.nav li a {
+    color: #c5c7c6;
+}
+
+.nav li a:hover {
+    color: #2a9fd6;
+}
+

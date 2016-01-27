@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "dcfb40d8fda26ec188373925715ca20c",
+    "hash": "2e6304e2b241d2d4c8be6c70c388cb7b",
     "packages": [
         {
             "name": "danack/console",
@@ -161,16 +161,16 @@
         },
         {
             "name": "danack/scripthelper",
-            "version": "0.0.2",
+            "version": "0.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Danack/ScriptHelper.git",
-                "reference": "aca7fb3b5ba9fed1bb12f361af69186416a63016"
+                "reference": "5720c17f99a2ab1a7556726e856ddcd26a845b16"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Danack/ScriptHelper/zipball/aca7fb3b5ba9fed1bb12f361af69186416a63016",
-                "reference": "aca7fb3b5ba9fed1bb12f361af69186416a63016",
+                "url": "https://api.github.com/repos/Danack/ScriptHelper/zipball/5720c17f99a2ab1a7556726e856ddcd26a845b16",
+                "reference": "5720c17f99a2ab1a7556726e856ddcd26a845b16",
                 "shasum": ""
             },
             "require-dev": {
@@ -199,7 +199,7 @@
                 }
             ],
             "description": "A library that helps add JS and CSS scripts to web pages, and then serve the requested scripts.",
-            "time": "2015-12-18 00:00:35"
+            "time": "2016-01-18 12:41:17"
         },
         {
             "name": "danack/tier",

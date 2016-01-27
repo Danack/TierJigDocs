@@ -3,41 +3,18 @@
 
 namespace TierDocs\Data;
 
-class TierExamples extends Examples
+class TierExamples implements Examples
 {
-    private $docHelper;
-    
-    function __construct()
+    public function getList()
     {
-    }
-    
-    public static function getList()
-    {
+//        ['caching' => 'Caching content', 'Full caching description' ],
+//            ['configuration' => 'App configuration', 'Getting application configuation into an application'],
+//            ['contexts' => 'Contexts', 'Contexts for application security' ],
+        
         return [
-            ['caching', 'Caching content', 'Full caching description' ],
-            ['configuration', 'App configuration', 'Getting application configuation into an application'],
-            ['contexts', 'Contexts', 'Contexts for application security' ],
+            'caching' => 'Caching content',
+            'configuration' => 'App configuration',
+            'contexts' => 'Contexts',
         ];
     }
-    
-    public function renderList()
-    {
-        $output = "<ul class='nav'>";
-        foreach (self::getList() as $example) {
-            list($example, $description, $fullDescription) = $example;
-            
-            $output .= "<li>";
-            $output .= sprintf(
-                "<a href='/examples/%s'>%s</a>",
-                $example,
-                $description
-            );
-            $output .= "</li>";
-        }
-        
-        $output .= "</ul>";
-        
-        return $output;
-    }
 }
-

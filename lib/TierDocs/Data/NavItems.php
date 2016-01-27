@@ -12,17 +12,13 @@ class NavItems implements \IteratorAggregate
     private $extendingExamples;
     
     public function __construct(
-        TierExamples $syntaxExamples 
-//        ExtendingExamples $extendingExamples
+        Introduction $introduction,
+        BasicExamples $basicExamples,
+        DesignDecisions $designDecisions
     ) { 
-        $this->items[] = new NavItem('/', 'Index');
-        $this->items[] = new NavItem('/executing', 'How Tier works');
-        $this->items[] = new NavItem('/dic', 'Dependency injection');
-        $this->items[] = new NavItem('/executionControl', 'Execution control');
-
-
-        $this->items[] = new NavItem('/examples', 'Examples', $syntaxExamples);
-        //$this->items[] = new NavItem('/onePage', 'One page example');
+        $this->items[] = new NavItem('/introduction', 'Introduction', $introduction);
+        $this->items[] = new NavItem('/examples', 'Basic examples', $basicExamples);
+        $this->items[] = new NavItem('/designDecisions', 'Design decisions', $designDecisions);
     }
 
     public function getIterator()

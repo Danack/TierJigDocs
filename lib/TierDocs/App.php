@@ -6,7 +6,6 @@ use Jig\JigConfig;
 use Jig\Jig;
 use Room11\HTTP\Request;
 use Room11\HTTP\Response;
-use Room11\HTTP\Body\TextBody;
 use Tier\InjectionParams;
 use Site\Config;
 use ScriptHelper\ScriptVersion;
@@ -19,10 +18,7 @@ use Jig\JigCompilePath;
 
 class App
 {
-    /**
-     * @return JigConfig
-     */
-    function createJigConfigForJigDocs(
+    public static function createJigConfigForTierDocs(
         Config $config,
         JigTemplatePath $jigTemplatePath,
         JigCompilePath $jigCompilePath
@@ -37,29 +33,7 @@ class App
         return $jigConfig;
     }
 
-    function createJigConfigForTierDocs(Config $config)
-    {
-        $jigConfig = new JigConfig(
-            __DIR__."/../templatesTier/",
-            __DIR__."/../var/compiletier/",
-            $config->getKey(Config::JIG_COMPILE_CHECK),
-            'tpl'
-        );
-
-        return $jigConfig;
-    }
-
-    function jigRoutesFunction(\FastRoute\RouteCollector $r)
-    {
-        $r->addRoute('GET', "/css/{commaSeparatedFilenames}", ['ScriptHelper\Controller\ScriptServer', 'serveCSS']);
-        $r->addRoute('GET',
-            '/js/{commaSeparatedFilenames}',
-            ['ScriptHelper\Controller\ScriptServer', 'serveJavascript']
-        );
-        $r->addRoute('GET', '/debug', ['JigDocs\Controller\Index', 'debug']);
-    }
-
-    function tierRoutesFunction(\FastRoute\RouteCollector $r)
+    public static function tierRoutesFunction(\FastRoute\RouteCollector $r)
     {
         $r->addRoute('GET', "/css/{commaSeparatedFilenames}", ['ScriptHelper\Controller\ScriptServer', 'serveCSS']);
         $r->addRoute('GET',
@@ -77,7 +51,7 @@ class App
     }
 
 
-    function getExampleClassnameFromTemplate($exampleName)
+    public static function getExampleClassnameFromTemplate($exampleName)
     {
         $classname = str_replace('/', '', $exampleName);
 
@@ -89,7 +63,7 @@ class App
         return $classname;
     }
 
-    function getTierExampleClassnameFromExampleName($exampleName)
+    public static function getTierExampleClassnameFromExampleName($exampleName)
     {
         $classname = str_replace('/', '', $exampleName);
 
@@ -101,9 +75,11 @@ class App
         return $classname;
     }
 
-    function renderTemplates($templates)
-    {
-        $path = __DIR__."/../test/fixtures/example_templates/";
+    public static function renderTemplates(
+        $templates,
+        \JigDocs\TestFixturesPath $testFixturesPath
+    ) {
+        $path = $testFixturesPath->getPath();
         $dirPath = realpath($path);
 
         $output = '';
@@ -120,7 +96,7 @@ class App
     }
 
 
-    function prepareJig(Jig $jig, $injector)
+    public static function prepareJig(Jig $jig, $injector)
     {
         $jig->addDefaultPlugin('JigDocs\Plugin\SitePlugin');
 
@@ -143,12 +119,14 @@ class App
         );
     }
 
-    function createJigDispatcher(Config $config)
-    {
+    public static function createTierDispatcher(
+        Config $config,
+        \TierDocs\RouteCachePath $routeCachePath
+    ) {
         $dispatcher = \FastRoute\cachedDispatcher(
-            'jigRoutesFunction',
+            ['TierDocs\App', 'tierRoutesFunction'],
             array(
-                'cacheFile' => __DIR__.'/../var/cache/route.cache',
+                'cacheFile' => $routeCachePath->getPath().'/tier_route.cache',
                 'cacheDisabled' => !$config->getKey(Config::ROUTE_CACHING),
             )
         );
@@ -156,29 +134,15 @@ class App
         return $dispatcher;
     }
 
-    function createTierDispatcher(Config $config)
-    {
-        $dispatcher = \FastRoute\cachedDispatcher(
-            'tierRoutesFunction',
-            array(
-                'cacheFile' => __DIR__.'/../var/cache/route.cache',
-                'cacheDisabled' => !$config->getKey(Config::ROUTE_CACHING),
-            )
-        );
-
-        return $dispatcher;
-    }
-
-    function createCaching()
+    public static function createCaching()
     {
         return new \Room11\Caching\LastModified\Revalidate(3600, 1200);
     }
 
-    function createScriptInclude(
+    public static function createScriptInclude(
         Config $config,
         \ScriptHelper\ScriptURLGenerator $scriptURLGenerator
-    )
-    {
+    ) {
         $packScript = $config->getKey(Config::SCRIPT_PACKING);
         // $packScript = true;
         if ($packScript) {
@@ -189,12 +153,12 @@ class App
         }
     }
 
-    function createUserInfo()
+    public static function createUserInfo()
     {
         return new \JigDocs\Model\UserInfo("Danack", "MrDanack");
     }
 
-    function createDispatcher()
+    public static function createDispatcher()
     {
         $dispatcher = \FastRoute\simpleDispatcher('routesFunction');
 
