@@ -17,7 +17,7 @@ class NavItems implements \IteratorAggregate
         DesignDecisions $designDecisions
     ) { 
         $this->items[] = new NavItem('/introduction', 'Introduction', $introduction);
-        $this->items[] = new NavItem('/examples', 'Basic examples', $basicExamples);
+        $this->items[] = new NavItem('/examples', 'Examples', $basicExamples);
         $this->items[] = new NavItem('/designDecisions', 'Design decisions', $designDecisions);
     }
 
