@@ -29,7 +29,9 @@ $aliases = [
     'ScriptHelper\ScriptVersion' => 'ScriptHelper\ScriptVersion\DateScriptVersion',
     'Tier\VariableMap\VariableMap' => 'Tier\VariableMap\RequestVariableMap',
     'Jig\Escaper' => 'Jig\Bridge\ZendEscaperBridge',
-    'Room11\HTTP\Response' => 'Room11\HTTP\Response\Response',
+    'Room11\HTTP\RequestHeaders' => 'Room11\HTTP\RequestHeaders\HTTPRequestHeaders',
+    'Room11\HTTP\RequestRouting' => 'Room11\HTTP\RequestRouting\PSR7RequestRouting',
+    'Room11\HTTP\VariableMap' => 'Room11\HTTP\VariableMap\PSR7VariableMap',
     'Zend\Diactoros\Response\EmitterInterface' => 'Zend\Diactoros\Response\SapiEmitter',
 ];
 
