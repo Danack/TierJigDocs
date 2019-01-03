@@ -1,0 +1,24 @@
+version: "3"
+services:
+  tierjig_php_fpm:
+    build: docker/php_fpm
+    image: tierjig_php_fpm:latest
+    volumes:
+      - .:/var/www
+    restart: always
+  tierjig_php_fpm_debug:
+    build: docker/php_fpm_debug
+    depends_on:
+      - tierjig_php_fpm
+    volumes:
+      - .:/var/www
+    restart: always
+  nginx:
+    build: docker/nginx
+    depends_on:
+      - tierjig_php_fpm
+      - tierjig_php_fpm_debug
+    volumes:
+      - .:/var/www
+    restart: always
+
