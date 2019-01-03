@@ -1,0 +1,5 @@
+{
+    "override": {
+        "php_memory_limit": "256M"
+    }
+}

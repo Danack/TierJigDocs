@@ -1,0 +1,33 @@
+{
+    "name": "danack/scripthelper",
+    "description": "A library that helps add JS and CSS scripts to web pages, and then serve the requested scripts.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Danack",
+            "email": "Danack@basereality.com"
+        }
+    ],
+
+    "require-dev": {
+        "phpunit/phpunit": "4.6.6",
+        "rdlowrey/auryn": "^1.0.2"
+    },
+    "require": {
+    },
+    "autoload": {
+        "psr-0": {
+            "ScriptHelper": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-0": {
+            "ScriptHelperTest": "test/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
+}

@@ -1,0 +1,27 @@
+before_commands:
+    - "composer install --dev --prefer-source"
+tools:
+    php_code_coverage:
+        enabled: true
+        test_command: php vendor/bin/phpunit -c test/phpunit.xml --coverage-text
+        filter:
+            paths: ["src/*"]
+            excluded_dirs: ["test/*", "docs/*", "example/*", "vendor/*"]
+    php_loc:
+        enabled: true
+        excluded_dirs: ["test/*", "docs/*", "example/*", "vendor/*"]
+    php_mess_detector:
+        enabled: true
+        filter:
+            paths: ["src/*"]
+            excluded_dirs: ["test/*", "docs/*", "example/*", "vendor/*"]
+    php_analyzer:
+        enabled: true
+        filter:
+            paths: ["src/*"]
+            excluded_dirs: ["test/*", "docs/*", "example/*", "vendor/*"]
+
+checks:
+    php:
+        code_rating: true
+        duplication: true

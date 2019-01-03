@@ -1,0 +1,1 @@
+{inject name= type='instance'}
