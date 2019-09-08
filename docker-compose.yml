@@ -3,6 +3,8 @@ services:
   tierjig_php_fpm:
     build: docker/php_fpm
     image: tierjig_php_fpm:latest
+    labels:
+      com.datadoghq.ad.logs: '[{"source": "php", "service": "tierjig_phpfpm"}]'
     volumes:
       - .:/var/www
     restart: always
@@ -10,6 +12,8 @@ services:
     build: docker/php_fpm_debug
     depends_on:
       - tierjig_php_fpm
+    labels:
+      com.datadoghq.ad.logs: '[{"source": "php", "service": "tierjig_php_fpm_debug"}]'
     volumes:
       - .:/var/www
     restart: always
@@ -18,6 +22,8 @@ services:
     depends_on:
       - tierjig_php_fpm
       - tierjig_php_fpm_debug
+    labels:
+      com.datadoghq.ad.logs: '[{"source": "nginx", "service": "tierjig_nginx"}]'
     volumes:
       - .:/var/www
     restart: always
